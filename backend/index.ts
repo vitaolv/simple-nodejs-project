@@ -24,28 +24,18 @@ app.get('/api/products', async (req, res) =>  {
 })
 
 app.post('/api/products', async (req, res) => {
-    console.log("inicoo");
     try {
-        console.log("entrei no try ");
-
         const { productCode,
             productName,
             productDescription,
             productPrice } = req.body
-            console.log("apos ler o body ");
-
         if (
             !productCode ||
             !productName ||
             !productDescription ||
             !productPrice ) {
-                console.log("Campo não preenchido ");
-
                 return res.status(400).json({ error: "Campos obrigatório não preenchido." });
             }
-
-            console.log("Apos if");
-
         const newData = await prisma.product.create({
             data: {
                 productCode,
@@ -54,15 +44,12 @@ app.post('/api/products', async (req, res) => {
                 productPrice
             }
         })
-        console.log("Criado com sucesso ");
         res.status(200).json(newData);
     } catch (err: unknown) {
         console.log(err);
         res.status(500).json({error: "Erro ao criar um novo produto."});
 
     } finally {
-        console.log("Finaliado ");
-
         await prisma.$disconnect();
     }
 })

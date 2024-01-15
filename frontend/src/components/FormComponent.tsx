@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+import '../styles/form.sass'
+
 export function FormComponent() {
     const [productCode, setProductCode] = useState<string>('');
     const [productName, setProductName] = useState<string>('');
@@ -22,6 +24,7 @@ export function FormComponent() {
             });
             console.log(response)
             if (response.status === 200) {
+                window.location.reload();
                 alert('Success!');
             }
         } catch (error: unknown) {
@@ -29,45 +32,45 @@ export function FormComponent() {
         }
     }
     return (
-        <div>
-            <div>
-                <form onSubmit={handleFormSubmit}>
-                    <label>
-                        Código do produto:
+        <form className="formSection" onSubmit={handleFormSubmit}>
+            <div className="formDisplay">
+                <label>
+                    Código do produto:
 
-                        <input
-                            type='number'
-                            value={productCode}
-                            onChange={(e) => setProductCode(e.target.value)} />
+                    <input
+                        type='number'
+                        value={productCode}
+                        onChange={(e) => setProductCode(e.target.value)} />
 
-                    </label>
-                    <label>
-                        Nome do produto:
+                </label>
+                <label>
+                    Nome do produto:
 
-                        <input
-                            type='text'
-                            value={productName}
-                            onChange={(e) => setProductName(e.target.value)} />
+                    <input
+                        type='text'
+                        value={productName}
+                        onChange={(e) => setProductName(e.target.value)} />
 
-                    </label>
-                    <label>
-                        Descrição:
+                </label>
+                <label>
+                    Preço:
 
-                        <textarea
-                            value={productDescription}
-                            onChange={(e) => setProductDescription(e.target.value)} />
-                    </label>
-                    <label>
-                        Preço:
-
-                        <input
-                            value={productPrice}
-                            onChange={(e) => setProductPrice(e.target.value)} />
-                    </label>
-
-                    <button type="submit">Salvar</button>
-                </form>
+                    <input
+                        value={productPrice}
+                        onChange={(e) => setProductPrice(e.target.value)} />
+                </label>
             </div>
-        </div>
+
+            <label>
+                Descrição:
+
+                <textarea
+                    id="textareaDescriptionRegisterProduct"
+                    value={productDescription}
+                    onChange={(e) => setProductDescription(e.target.value)} />
+            </label>
+
+            <button className="buttonPrimary" type="submit">Salvar</button>
+        </form>
     )
 }
