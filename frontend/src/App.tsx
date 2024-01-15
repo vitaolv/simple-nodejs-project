@@ -1,10 +1,12 @@
 import './App.sass'
 import { ProductsListComponent } from './components/ProductsListComponent'
 import { FormComponent } from './components/FormComponent'
-function App() {
+import { HeaderComponent } from './components/Header'
 
+function App() {
   return (
     <div className='AppBody'>
+      <HeaderComponent />
       <FormComponent />
       <ProductsListComponent />
     </div>
