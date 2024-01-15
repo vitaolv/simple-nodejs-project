@@ -15,7 +15,7 @@
         display: flex
         flex-flow: column
         text-align: center
-        color: $primary
+        color: $color
         font-size: 18px
         font-weight: bold
 
@@ -60,20 +60,20 @@
     .buttonPrimary
         width: 94px
         height: 45px
-        border: none
-        color: $inputs
+        color: $primary
         font-weight: bold
-        background: $primary
+        border: 2px solid $primary
         border-radius: 14px
         transition: 0.2s ease-in
 
         &:hover
             border: 2px solid $primary
-            color: $primary
-            background: none
+            background: $primary
+            color: $inputs
 
             &:active
                 background: $secondary
+                color: $primary
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button

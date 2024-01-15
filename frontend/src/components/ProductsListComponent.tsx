@@ -1,8 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 
+import "../styles/productsList.sass"
+
 interface Product {
     id: number,
+    productCode: string,
     productName: string,
     productDescription: string,
     productPrice: number,
@@ -31,16 +34,14 @@ export function ProductsListComponent() {
 
 
     return (
-        <div>
+        <div className="productList">
             <h3>Lista dos produtos cadastrados:</h3>
-            <ul>
+            <ul className="ul-productList">
                 {Array.isArray(products) && products.map((product) => (
                     <li key={product.id}>
-                        <h4>
-                            {product.productName}
-                            {product.productDescription}
-                            {product.productPrice}
-                        </h4>
+                        <span grid-column="1">{product.productName}</span>
+                        <span grid-column="2">{product.productDescription}</span>
+                        <span grid-column="3">{product.productPrice}</span>
                     </li>
                 ))}
             </ul>
