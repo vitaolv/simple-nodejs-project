@@ -8,7 +8,7 @@ import { FooterComponent } from './components/Footer.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <HeaderComponent />
+
     <App />
     <FooterComponent />
   </React.StrictMode>,
