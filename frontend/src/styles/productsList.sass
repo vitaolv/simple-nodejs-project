@@ -1,0 +1,35 @@
+@import "../App"
+
+.productList
+    margin-top: 5vh
+
+    & h3
+        font-size: 20px
+        font-weight: bold
+        color: $primary
+
+.ul-productList
+    margin-top: 2vh
+
+.ul-productList li
+    margin-top: 1vh
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 10px
+
+#display-list
+    background: $secondary
+    justify-content: space-evenly
+    text-align: start
+    display: flex
+    flex-direction: row
+    gap: 10%
+    align-items: flex-start
+    & li
+        flex-grow: 1
+        height: 100%
+        background: none
+
+    & li p
+        height: 100%
+        background: none

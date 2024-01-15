@@ -1,1 +1,31 @@
+@import "../App"
 
+.footer
+    background: $primary
+    padding: 10px
+    width: 100%
+    align-items: center
+    text-align: center
+    margin: 4vh 0 0 0
+    display: flex
+    justify-content: space-around
+
+    p
+        background: none
+        font-weight: bold
+        color: $secondary
+        font-size: 14px
+
+    a
+        background: none
+        font-weight: bold
+        color: $secondary
+        font-size: 14px
+        text-decoration: none
+
+        &:hover
+            color: $inputs
+            transition: 0.2s ease-out
+
+        &:visited
+            color: $tertiary
