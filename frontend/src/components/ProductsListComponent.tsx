@@ -16,16 +16,12 @@ export function ProductsListComponent() {
         async function getProducts() {
             try {
                 const response = await axios.get('http://localhost:8000/api/products');
+
                 if (response.status === 200) {
                     setProducts(response.data)
-                    console.log(response.data)
-                } else {
-                    console.error(`Unexpected status code: ${response.status}`);
-
                 }
-            } catch (error: unknown) {
-                console.error('Error fetching products:', error);
 
+            } catch (error: unknown) {
                 alert(error)
             }
         }
