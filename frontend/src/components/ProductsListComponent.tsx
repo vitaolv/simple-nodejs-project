@@ -39,9 +39,10 @@ export function ProductsListComponent() {
             <ul className="ul-productList">
                 {Array.isArray(products) && products.map((product) => (
                     <li key={product.id}>
-                        <span grid-column="1">{product.productName}</span>
-                        <span grid-column="2">{product.productDescription}</span>
-                        <span grid-column="3">{product.productPrice}</span>
+                        <span >{product.productCode}</span>
+                        <span >{product.productName}</span>
+                        <span >{product.productDescription}</span>
+                        <span >{product.productPrice}</span>
                     </li>
                 ))}
             </ul>
