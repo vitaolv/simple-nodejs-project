@@ -60,15 +60,20 @@
     .buttonPrimary
         width: 94px
         height: 45px
-        border: 2px solid $primary
-        color: $primary
+        border: none
+        color: $inputs
         font-weight: bold
-        background: none
+        background: $primary
         border-radius: 14px
-        transition: 0.3s ease-in-out
+        transition: 0.2s ease-in
 
         &:hover
-            background: $secondary
+            border: 2px solid $primary
+            color: $primary
+            background: none
+
+            &:active
+                background: $secondary
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button
