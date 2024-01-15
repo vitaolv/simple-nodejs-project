@@ -7,20 +7,21 @@ export function FormComponent() {
     const [productDescription, setProductDescription] = useState<string>('');
     const [productPrice, setProductPrice] = useState<string>('');
 
+    const productPriceNumber = parseFloat(productPrice); // Ensure it's a valid number
+
+
     async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        const product = {
-            productCode,
-            productName,
-            productDescription,
-            productPrice,
-        }
-
         try {
-            const response = await axios.post(`/products`, product);
-
-            if (response.status === 201) {
+            const response = await axios.post("http://localhost:8000/api/products", {
+                productCode,
+                productName,
+                productDescription,
+                productPrice: productPriceNumber
+            });
+            console.log(response)
+            if (response.status === 200) {
                 alert('Success!');
             }
         } catch (error: unknown) {
