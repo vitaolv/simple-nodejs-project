@@ -1,0 +1,29 @@
+@import "../App"
+.deleteButton
+    border: 2px solid $primaryDelete
+    color: $primaryDelete
+    background: $SecondaryDelete
+    border-radius: 8px
+    height: 38px
+    width: 114px
+    font-weight: bold
+    transition: 0.2s ease-out
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &:hover
+        border: 2px solid $primaryDelete
+        color: $primaryDelete
+        background: $tertiary
+    &:active
+        border: 2px solid $primaryDelete
+        color: $SecondaryDelete
+        background: $primaryDelete
+
+    & img
+        background: none
+        width: 18px
+
+.deleteButton:active img
+    filter: invert(20%) brightness(230%)

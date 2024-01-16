@@ -1,23 +1,32 @@
 @import "../App"
 
+.titleSectoinProductsList
+
+    margin-bottom: 10px
+    font-size: 28px
+    font-weight: bold
+    color: $primary
+    padding-top: 4vh
+
 .formSection
     display: flex
     flex-direction: column
     gap: 2vh
     max-width: 1000px
     justify-content: center
-    border: 3px solid $primary
+    border: 2.5px solid $primary
+    background: $secondary
     padding: 24px
     border-radius: 20px
     margin: 0 auto
-    margin-top: 20vh
 
     label
         display: flex
         flex-flow: column
         text-align: center
-        color: $primary
+        color: $dark
         font-size: 18px
+        background: $secondary
         font-weight: bold
 
     #textareaDescriptionRegisterProduct
@@ -31,10 +40,11 @@
         border-radius: 14px
         box-sizing: border-box
         background: $inputs
+        padding: 8px
 
         &:focus
             border: none
-            outline: 3px solid $primary
+            outline: 3px solid $dark
 
     .formDisplay
         display: flex
@@ -43,6 +53,7 @@
         flex-wrap: wrap
         align-items: center
         justify-content: space-around
+        background: $secondary
 
         input
             height: 34px
@@ -56,24 +67,26 @@
 
             &:focus
                 border: none
-                outline: 3px solid $primary
+                outline: 3px solid $dark
 
     .buttonPrimary
         width: 94px
         height: 45px
-        color: $primary
         font-weight: bold
-        border: 2px solid $primary
         border-radius: 14px
         transition: 0.2s ease-in
+        border: 2px solid $primary
+        background: $primary
+        color: $inputs
 
         &:hover
-            border: 2px solid $primary
-            background: $primary
-            color: $inputs
+            border: 2px solid $dark
+            background: $tertiary
+            color: $dark
 
             &:active
                 background: $secondary
+                border: 2px solid $primary
                 color: $primary
 
 input::-webkit-outer-spin-button,

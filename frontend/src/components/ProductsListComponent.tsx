@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 import "../styles/productsList.sass"
+import { ButtonComponent } from "./ButtonComponent";
 
 interface Product {
     id: number,
@@ -10,7 +11,6 @@ interface Product {
     productDescription: string,
     productPrice: number,
 }
-
 
 export function ProductsListComponent() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -28,21 +28,41 @@ export function ProductsListComponent() {
                 alert(error)
             }
         }
-
         getProducts()
     }, [])
 
 
     return (
         <div className="productList">
-            <h3>Lista dos produtos cadastrados:</h3>
+            <h3>Lista dos produtos cadastrados</h3>
             <ul className="ul-productList">
                 {Array.isArray(products) && products.map((product) => (
                     <li key={product.id}>
-                        <span >{product.productCode}</span>
-                        <span >{product.productName}</span>
-                        <span >{product.productDescription}</span>
-                        <span >{product.productPrice}</span>
+                        <span>
+                            <p className="li-header">Código:</p>
+                            <p className="li-item">{product.productCode}
+                            </p>
+                        </span>
+                        <span>
+                            <p className="li-header">Nome:</p>
+                            <p className="li-item">{product.productName}</p>
+                        </span>
+                        <span>
+                            <p className="li-header">Preço:</p>
+                            <p className="li-item">{product.productPrice}</p>
+                        </span>
+                        <span>
+                            <p className="li-header">Descrição:</p>
+                            <p className="li-item">{product.productDescription}</p>
+                        </span>
+                        <div className="displayButtons">
+                            <span>
+                                <ButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" />
+                            </span>
+                            <span>
+                                <ButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" />
+                            </span>
+                        </div>
                     </li>
                 ))}
             </ul>
