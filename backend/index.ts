@@ -54,6 +54,27 @@ app.post('/api/products', async (req, res) => {
     }
 })
 
+app.delete("/api/products/:id", async (req, res) => {
+    try{
+    const id = req.params.id;
+
+    if (!id) {
+        return res.status(404).json({ error: "ID do produto não encontrado." });
+    }
+
+    const deletedProduct = await prisma.product.delete({
+        where: {id},
+    })
+
+    res.status(204).json({ message: 'Produto foi deletado com sucesso!'});
+    } catch (err : unknown) {
+        alert(err)
+        res.status(500).json({ error: 'Erro ao deletar o produto.'})
+    } finally {
+        await prisma.$disconnect()
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 })
