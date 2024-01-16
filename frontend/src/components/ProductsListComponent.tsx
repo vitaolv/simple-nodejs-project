@@ -3,9 +3,10 @@ import { useEffect, useState } from "react"
 
 import "../styles/productsList.sass"
 import { ButtonComponent } from "./ButtonComponent";
+import { DeleteButtonComponent } from "./DeleteButtonComponent";
 
 interface Product {
-    id: number,
+    id: string,
     productCode: string,
     productName: string,
     productDescription: string,
@@ -60,12 +61,13 @@ export function ProductsListComponent() {
                                 <ButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" />
                             </span>
                             <span>
-                                <ButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" />
+                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
+
                             </span>
                         </div>
                     </li>
                 ))}
             </ul>
-        </div>
+        </div >
     )
 }
