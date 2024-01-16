@@ -23,6 +23,25 @@ app.get('/api/products', async (req, res) =>  {
     return Promise.resolve();
 })
 
+app.get('/api/products/:id', async (req, res) =>  {
+    try {
+        const itemId = req.params.id;
+        const product = await prisma.product.findUnique({
+            where: { id: itemId},
+        })
+        
+        if(!product) {
+            res.status(404).json({ error: "O produto não foi encontrado."})
+        }
+        
+        res.json(itemId);
+    } catch (err: unknown) {
+        res.status(500).json({error: 'Erro ao obter produtos'})
+    }  
+
+    return Promise.resolve();
+})
+
 app.post('/api/products', async (req, res) => {
     try {
         const { productCode,
@@ -62,13 +81,14 @@ app.delete("/api/products/:id", async (req, res) => {
         return res.status(404).json({ error: "ID do produto não encontrado." });
     }
 
-    const deletedProduct = await prisma.product.delete({
-        where: {id},
-    })
+    if (id) {
+        const deletedProduct = await prisma.product.delete({
+            where: { id },
+        });
+    }
 
     res.status(204).json({ message: 'Produto foi deletado com sucesso!'});
     } catch (err : unknown) {
-        alert(err)
         res.status(500).json({ error: 'Erro ao deletar o produto.'})
     } finally {
         await prisma.$disconnect()

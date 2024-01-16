@@ -71,5 +71,31 @@
 .displayButtons
     display: flex
     gap: 14px
+    background: $secondary
     flex-direction: row-reverse
     align-items: flex-end
+    padding-top: 14px
+
+    & div
+        background: $secondary
+
+@media (max-width: 796px)
+    .productList h3
+        font-size: 23px
+        padding: 12px
+        margin: 2px
+
+    .ul-productList
+        width: 100%
+        gap: 2rem
+        padding: 5px
+
+    .ul-productList li
+        display: block
+        padding: 15px
+        margin: 3px 16px
+
+@media (max-width: 340px)
+    .displayButtons
+        flex-direction: column
+        align-items: center

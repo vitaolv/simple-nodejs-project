@@ -1,7 +1,6 @@
 @import "../App"
 
 .titleSectoinProductsList
-
     margin-bottom: 10px
     font-size: 28px
     font-weight: bold
@@ -13,7 +12,6 @@
     flex-direction: column
     gap: 2vh
     max-width: 1000px
-    justify-content: center
     border: 2.5px solid $primary
     background: $secondary
     padding: 24px
@@ -49,7 +47,7 @@
     .formDisplay
         display: flex
         flex: 1
-        gap: 1.4rem
+        gap: 1rem
         flex-wrap: wrap
         align-items: center
         justify-content: space-around
@@ -58,7 +56,7 @@
         input
             height: 34px
             width: 100%
-            max-width: 220px
+            max-width: 280px
             border-radius: 14px
             border: 2px solid $primary
             box-sizing: border-box
@@ -69,6 +67,22 @@
                 border: none
                 outline: 3px solid $dark
 
+    .formDisplay label:nth-child(1) input
+        width: 180px
+
+    .formDisplay label:nth-child(2) input
+        width: 300px
+
+    .formDisplay label:nth-child(3) input
+        width: 200px
+
+    @media (max-width: 545px)
+        .formDisplay label:nth-child(1) input,
+        .formDisplay label:nth-child(2) input,
+        .formDisplay label:nth-child(3) input
+            min-width: 220px
+            max-width: 220px
+
     .buttonPrimary
         width: 94px
         height: 45px
@@ -78,6 +92,7 @@
         border: 2px solid $primary
         background: $primary
         color: $inputs
+        align-self: center
 
         &:hover
             border: 2px solid $dark
@@ -93,3 +108,11 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button
     -webkit-appearance: none
     margin: 0
+
+@media (max-width: 1030px)
+    .formSection
+        margin: 0 18px 0 18px
+
+@media (max-width: 380px)
+    .titleSectoinProductsList
+        font-size: 24px
