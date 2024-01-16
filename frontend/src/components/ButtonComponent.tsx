@@ -1,5 +1,3 @@
-
-
 interface TypesButtonComponent {
     readonly text: string;
     readonly classStyle: string;
