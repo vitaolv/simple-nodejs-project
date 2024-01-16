@@ -1,0 +1,29 @@
+@import "../App"
+.secundaryButton
+    border: 2px solid $primary
+    color: $primary
+    background: $secondary
+    border-radius: 8px
+    height: 38px
+    width: 114px
+    font-weight: bold
+    transition: 0.2s ease-out
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &:hover
+        border: 2px solid $primary
+        color: $primary
+        background: $tertiary
+    &:active
+        border: 2px solid $primary
+        color: $tertiary
+        background: $primary
+
+    & img
+        background: none
+        width: 22px
+
+.secundaryButton:active img
+    filter: invert(20%) brightness(230%)

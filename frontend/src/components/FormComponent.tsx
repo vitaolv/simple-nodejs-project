@@ -32,45 +32,48 @@ export function FormComponent() {
         }
     }
     return (
-        <form className="formSection" onSubmit={handleFormSubmit}>
-            <div className="formDisplay">
+        <>
+            <h3 className="titleSectoinProductsList">Cadastro de produtos</h3>
+            <form className="formSection" onSubmit={handleFormSubmit}>
+                <div className="formDisplay">
+                    <label>
+                        Código do produto:
+
+                        <input
+                            type='number'
+                            value={productCode}
+                            onChange={(e) => setProductCode(e.target.value)} />
+
+                    </label>
+                    <label>
+                        Nome do produto:
+
+                        <input
+                            type='text'
+                            value={productName}
+                            onChange={(e) => setProductName(e.target.value)} />
+
+                    </label>
+                    <label>
+                        Preço:
+
+                        <input
+                            value={productPrice}
+                            onChange={(e) => setProductPrice(e.target.value)} />
+                    </label>
+                </div>
+
                 <label>
-                    Código do produto:
+                    Descrição:
 
-                    <input
-                        type='number'
-                        value={productCode}
-                        onChange={(e) => setProductCode(e.target.value)} />
-
+                    <textarea
+                        id="textareaDescriptionRegisterProduct"
+                        value={productDescription}
+                        onChange={(e) => setProductDescription(e.target.value)} />
                 </label>
-                <label>
-                    Nome do produto:
 
-                    <input
-                        type='text'
-                        value={productName}
-                        onChange={(e) => setProductName(e.target.value)} />
-
-                </label>
-                <label>
-                    Preço:
-
-                    <input
-                        value={productPrice}
-                        onChange={(e) => setProductPrice(e.target.value)} />
-                </label>
-            </div>
-
-            <label>
-                Descrição:
-
-                <textarea
-                    id="textareaDescriptionRegisterProduct"
-                    value={productDescription}
-                    onChange={(e) => setProductDescription(e.target.value)} />
-            </label>
-
-            <button className="buttonPrimary" type="submit">Salvar</button>
-        </form>
+                <button className="buttonPrimary" type="submit">Salvar</button>
+            </form>
+        </>
     )
 }
