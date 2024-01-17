@@ -52,7 +52,7 @@ export function ProductsListComponent() {
                         <p className="li-item">{product.productPrice}</p>
                     </span>
                     <span>
-                        <SeeDetailButtonComponent text="Ver descrição" classStyle="secundaryButton" srcImage="../../public/see.svg" />
+                        <SeeDetailButtonComponent text="Ver descrição" classStyle="secundaryButton" srcImage="../../public/see.svg" productId={product.id} />
                     </span>
                     <div className="displayButtons">
                         <span>
