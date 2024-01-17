@@ -31,7 +31,7 @@ app.get('/api/products/:id', async (req, res) =>  {
         })
         
         if(!product) {
-            res.status(404).json({ error: "O produto não foi encontrado."})
+            res.status(404).json({ message: "O produto não foi encontrado."})
         }
         
         res.json(itemId);
@@ -53,7 +53,7 @@ app.post('/api/products', async (req, res) => {
             !productName ||
             !productDescription ||
             !productPrice ) {
-                return res.status(400).json({ error: "Campos obrigatório não preenchido." });
+                return res.status(400).json({ message: "Campos obrigatório não preenchido." });
             }
         const newData = await prisma.product.create({
             data: {
@@ -78,7 +78,7 @@ app.delete("/api/products/:id", async (req, res) => {
     const id = req.params.id;
 
     if (!id) {
-        return res.status(404).json({ error: "ID do produto não encontrado." });
+        return res.status(404).json({ message: "ID do produto não encontrado." });
     }
 
     if (id) {
@@ -90,6 +90,36 @@ app.delete("/api/products/:id", async (req, res) => {
     res.status(204).json({ message: 'Produto foi deletado com sucesso!'});
     } catch (err : unknown) {
         res.status(500).json({ error: 'Erro ao deletar o produto.'})
+    } finally {
+        await prisma.$disconnect()
+    }
+})
+
+app.patch('/api/produtcs/:id', async (req, res) => {
+    try {
+        const productId = req.params.id
+        if(!productId) {
+            res.status(404).json({ message: "ID do produto não encontrado."})
+        }
+
+        const { id,
+                productCode,
+                productName,
+                productDescription,
+                productPrice } = req.body
+
+        const editedProduct = await prisma.product.update({
+            where: { id },
+            data: {
+                    productCode,
+                    productName,
+                    productDescription,
+                    productPrice
+                }
+            })
+            res.status(200).json({ message: "O produto foi atualizado com sucesso!"})
+    } catch (err : unknown) {
+        res.status(500).json({ error: 'Erro ao editar o produto.' })
     } finally {
         await prisma.$disconnect()
     }
