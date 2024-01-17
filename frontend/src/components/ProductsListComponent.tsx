@@ -2,8 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 import "../styles/productsList.sass"
-import { ButtonComponent } from "./ButtonComponent";
 import { DeleteButtonComponent } from "./DeleteButtonComponent";
+import { UpdateButtonComponent } from "./UpdateButtonComponent";
 
 interface Product {
     id: string,
@@ -58,7 +58,7 @@ export function ProductsListComponent() {
                         </span>
                         <div className="displayButtons">
                             <span>
-                                <ButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" />
+                                <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
                             </span>
                             <span>
                                 <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
