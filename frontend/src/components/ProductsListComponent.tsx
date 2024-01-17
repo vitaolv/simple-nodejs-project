@@ -56,10 +56,10 @@ export function ProductsListComponent() {
                     </span>
                     <div className="displayButtons">
                         <span>
-                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
+                            <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
                         </span>
                         <span>
-                            <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
+                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
                         </span>
                     </div>
                 </li>

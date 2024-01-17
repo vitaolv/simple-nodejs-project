@@ -32,7 +32,7 @@ export function FormComponent() {
         }
     }
     return (
-        <>
+        <div id="formBody">
             <h3 className="titleSectoinProductsList">Cadastro de produtos</h3>
             <form className="formSection" onSubmit={handleFormSubmit}>
                 <div className="formDisplay">
@@ -74,6 +74,6 @@ export function FormComponent() {
 
                 <button className="buttonPrimary" type="submit">Salvar</button>
             </form>
-        </>
+        </div>
     )
 }

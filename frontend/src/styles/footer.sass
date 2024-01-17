@@ -18,7 +18,7 @@
         background: none
         font-weight: bold
         color: $secondary
-        font-size: 14px
+        line-height: 24px
 
     a
         background: none
@@ -34,8 +34,12 @@
         &:visited
             color: $tertiary
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: 796px)
     .footer
-        gap: 6px
+        gap: 8px
         justify-content: center
         flex-direction: column-reverse
+        position: relative
+
+        p
+            font-size: 14px
