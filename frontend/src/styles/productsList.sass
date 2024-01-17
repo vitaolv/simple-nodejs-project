@@ -40,10 +40,6 @@
         color: $dark
         background: $secondary
 
-.ul-productList li span:nth-child(4)
-    grid-column: 1/4
-    grid-row: 2
-
 .ul-productList li span:nth-child(1)
     grid-column: 1
 
@@ -66,18 +62,21 @@
 
 .ul-productList li div:nth-child(5)
     grid-column: 3
-    grid-row: 3
+    grid-row: 2
+    align-items: center
 
 .displayButtons
     display: flex
     gap: 14px
     background: $secondary
     flex-direction: row-reverse
-    align-items: flex-end
-    padding-top: 14px
+    justify-content: space-between
+    align-items: space-between
 
     & div
         background: $secondary
+        display: flex
+        gap: 14px
 
 @media (max-width: 796px)
     .productList h3
@@ -85,6 +84,12 @@
         padding: 12px
         margin: 2px
 
+    .ul-productList
+        width: 100%
+        gap: 2rem
+        padding: 5px
+
+@media (max-width: 360px)
     .ul-productList
         width: 100%
         gap: 2rem

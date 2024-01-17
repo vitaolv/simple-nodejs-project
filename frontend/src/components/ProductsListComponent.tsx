@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import "../styles/productsList.sass"
 import { DeleteButtonComponent } from "./DeleteButtonComponent";
 import { UpdateButtonComponent } from "./UpdateButtonComponent";
+import { SeeDetailButtonComponent } from "./SeeDetailButtonComponent";
 
 interface Product {
     id: string,
@@ -51,16 +52,14 @@ export function ProductsListComponent() {
                         <p className="li-item">{product.productPrice}</p>
                     </span>
                     <span>
-                        <p className="li-header">Descrição:</p>
-                        <p className="li-item">{product.productDescription}</p>
+                        <SeeDetailButtonComponent text="Ver descrição" classStyle="secundaryButton" srcImage="../../public/see.svg" />
                     </span>
                     <div className="displayButtons">
                         <span>
-                            <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
+                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
                         </span>
                         <span>
-                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
-
+                            <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
                         </span>
                     </div>
                 </li>

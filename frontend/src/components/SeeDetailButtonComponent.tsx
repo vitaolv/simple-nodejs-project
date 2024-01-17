@@ -4,7 +4,7 @@ interface TypesButtonComponent {
     readonly srcImage: string;
 }
 
-export function ButtonComponent({ text, classStyle, srcImage }: TypesButtonComponent) {
+export function SeeDetailButtonComponent({ text, classStyle, srcImage }: TypesButtonComponent) {
     return (
         <button className={`${classStyle}`}>
             <img src={srcImage} alt={text} />
