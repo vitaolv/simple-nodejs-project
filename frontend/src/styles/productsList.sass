@@ -5,6 +5,7 @@
 
     & h3
         font-size: 28px
+        margin: 1.2rem
         font-weight: bold
         color: $primary
 
@@ -14,7 +15,7 @@
     max-width: 1200px
     display: flex
     flex-direction: column
-    gap: 1.2rem
+    gap: 1rem
     padding: 0 84px 84px 84px
 
 .ul-productList li
@@ -67,7 +68,7 @@
 
 .displayButtons
     display: flex
-    gap: 14px
+    gap: 10px
     background: $secondary
     flex-direction: row-reverse
     justify-content: space-between
@@ -78,7 +79,11 @@
         display: flex
         gap: 14px
 
-@media (max-width: 796px)
+@media (min-width: 486px) and (max-width: 796px)
+    .productList
+        padding: 12px
+        margin: 2px
+
     .productList h3
         font-size: 23px
         padding: 12px
@@ -89,18 +94,73 @@
         gap: 2rem
         padding: 5px
 
-@media (max-width: 360px)
+    .ul-productList li
+        display: grid
+        grid-template-col: 1fr 2fr 1fr 1fr
+        gap: 18px
+        text-align: start
+
+    .ul-productList li span:nth-child(1)
+        grid-row: 1
+        grid-column: 1
+
+    .ul-productList li span:nth-child(2)
+        grid-row: 2
+        grid-column: 1
+
+    .ul-productList li span:nth-child(3)
+        grid-column: 1
+        grid-row: 3
+
+    .ul-productList li span:nth-child(4)
+        grid-column: 1
+        grid-row: 4
+        justify-self: end
+
+    .ul-productList li div:nth-child(5)
+        grid-column: 2
+        grid-row: 4
+        justify-content: start
+
+@media (max-width: 485px)
+    .productList h3
+        font-size: 23px
+        padding: 0
+        margin: 0
+
     .ul-productList
         width: 100%
-        gap: 2rem
-        padding: 5px
+        margin: 0
+        padding: 24px
 
     .ul-productList li
-        display: block
-        padding: 15px
-        margin: 3px 16px
+        display: grid
+        grid-template-columns: 1fr
+        gap: 10px
+        width: 100%
+        text-align: start
 
-@media (max-width: 340px)
-    .displayButtons
+    .ul-productList li span:nth-child(1)
+        grid-row: 1
+        grid-column: 1
+
+    .ul-productList li span:nth-child(2)
+        grid-row: 2
+        grid-column: 1
+
+    .ul-productList li span:nth-child(3)
+        grid-column: 1
+        grid-row: 3
+
+    .ul-productList li span:nth-child(4)
+        grid-column: 1
+        grid-row: 5
+        justify-self: start
+
+    .ul-productList li div:nth-child(5)
+        grid-column: 1
+        grid-row: 4
+        display: flex
         flex-direction: column
-        align-items: center
+        align-items: flex-start
+        width: 100px
