@@ -34,40 +34,37 @@ export function ProductsListComponent() {
 
 
     return (
-        <div className="productList">
-            <h3>Lista dos produtos cadastrados</h3>
-            <ul className="ul-productList">
-                {Array.isArray(products) && products.map((product) => (
-                    <li key={product.id}>
+        <ul className="ul-productList">
+            {Array.isArray(products) && products.map((product) => (
+                <li key={product.id}>
+                    <span>
+                        <p className="li-header">Código:</p>
+                        <p className="li-item">{product.productCode}
+                        </p>
+                    </span>
+                    <span>
+                        <p className="li-header">Nome:</p>
+                        <p className="li-item">{product.productName}</p>
+                    </span>
+                    <span>
+                        <p className="li-header">Preço:</p>
+                        <p className="li-item">{product.productPrice}</p>
+                    </span>
+                    <span>
+                        <p className="li-header">Descrição:</p>
+                        <p className="li-item">{product.productDescription}</p>
+                    </span>
+                    <div className="displayButtons">
                         <span>
-                            <p className="li-header">Código:</p>
-                            <p className="li-item">{product.productCode}
-                            </p>
+                            <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
                         </span>
                         <span>
-                            <p className="li-header">Nome:</p>
-                            <p className="li-item">{product.productName}</p>
-                        </span>
-                        <span>
-                            <p className="li-header">Preço:</p>
-                            <p className="li-item">{product.productPrice}</p>
-                        </span>
-                        <span>
-                            <p className="li-header">Descrição:</p>
-                            <p className="li-item">{product.productDescription}</p>
-                        </span>
-                        <div className="displayButtons">
-                            <span>
-                                <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
-                            </span>
-                            <span>
-                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
+                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
 
-                            </span>
-                        </div>
-                    </li>
-                ))}
-            </ul>
-        </div >
+                        </span>
+                    </div>
+                </li>
+            ))}
+        </ul>
     )
 }
