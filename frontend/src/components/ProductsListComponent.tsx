@@ -2,6 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 import "../styles/productsList.sass"
+import "../styles/noData.sass"
+
 import { DeleteButtonComponent } from "./DeleteButtonComponent";
 import { UpdateButtonComponent } from "./UpdateButtonComponent";
 import { SeeDetailButtonComponent } from "./SeeDetailButtonComponent";
@@ -36,7 +38,7 @@ export function ProductsListComponent() {
 
     return (
         <ul className="ul-productList">
-            {Array.isArray(products) && products.map((product) => (
+            {products.length > 0 ? (products.map((product) => (
                 <li key={product.id}>
                     <span>
                         <p className="li-header">Código:</p>
@@ -63,7 +65,19 @@ export function ProductsListComponent() {
                         </span>
                     </div>
                 </li>
-            ))}
+            ))) : (
+                <div className="NoData">
+                    <img src="../../public/noData.svg" alt="Sem-dados" />
+                    <h4>Opa! Não temos produtos cadastrados.</h4>
+                    <p>Sem problemas, pode
+                        <a href="http://localhost:5173/cadastro-de-produto">
+                            clicar aqui
+                        </a>
+                        para adicionar um novo produto.
+                    </p>
+                </div>
+            )}
+
         </ul>
     )
 }

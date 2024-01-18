@@ -1,0 +1,43 @@
+@import ../App
+.NoData
+    display: flex
+    flex-direction: column
+    max-width: 1000px
+
+    h4
+        font-size: 1.5rem
+        font-weight: bold
+        color: $primary
+        margin-top: 2rem
+        padding: 20px
+
+    p
+        font-size: 1.2rem
+        font-weight: bold
+        color: $primary
+        margin-bottom: 1rem
+        padding: 20px
+
+    a
+        font-size: 1.2rem
+        font-weight: bold
+        color: $dark
+        margin-bottom: 1rem
+        padding: 8px
+
+    a:hover
+        color: $primary
+        transition: 0.2s ease-in-out
+
+    a:visited
+        color: none
+
+    img
+        padding-top: 32px
+        width: 400px
+        max-width: 500px
+        margin: 0 auto
+
+    @media (max-width: 906px)
+        img
+            width: 100%
