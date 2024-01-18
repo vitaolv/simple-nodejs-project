@@ -1,25 +1,35 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+
+interface Product {
+    id: string,
+    productCode: string,
+    productName: string,
+    productDescription: string,
+    productPrice: number,
+}
+
 interface TypesButtonComponent {
-    readonly productId: string;
+    readonly product: Product;
     readonly text: string;
     readonly classStyle: string;
     readonly srcImage: string;
 }
 
 
-export function SeeDetailButtonComponent({ text, classStyle, srcImage, productId }: TypesButtonComponent) {
+export function SeeDetailButtonComponent({ text, classStyle, srcImage, product }: TypesButtonComponent) {
     const navigate = useNavigate();
     const handleSeeDetailButtonClick = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/products/${productId}`,
+            const response = await axios.get(`http://localhost:8000/api/products/${product.id}`,
                 {
                     method: 'GET'
                 }
             )
 
             if (response.status === 200) {
-                navigate(`/descrição-de-produto/${productId}`, { state: { productId } });
+                navigate(`/descrição-de-produto/${product.id}`, { state: { product } });
             }
         } catch (err: unknown) {
             alert(err)
