@@ -1,15 +1,15 @@
-
+import { useNavigate } from "react-router-dom";
 interface TypesToBackButtonComponent {
-    readonly productId: string;
     readonly text: string;
     readonly classStyle: string;
     readonly srcImage: string;
 }
 
 export function ToBackButtonComponent({ text, classStyle, srcImage }: TypesToBackButtonComponent) {
+    const navigate = useNavigate()
 
     const handleToBackButtonClick = () => {
-
+        navigate("/home")
     }
 
     return (
