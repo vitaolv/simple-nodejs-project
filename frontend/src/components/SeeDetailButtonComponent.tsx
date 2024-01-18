@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 interface TypesButtonComponent {
     readonly productId: string;
     readonly text: string;
@@ -8,7 +9,7 @@ interface TypesButtonComponent {
 
 
 export function SeeDetailButtonComponent({ text, classStyle, srcImage, productId }: TypesButtonComponent) {
-
+    const navigate = useNavigate();
     const handleSeeDetailButtonClick = async () => {
         try {
             const response = await axios.get(`http://localhost:8000/api/products/${productId}`,
@@ -18,7 +19,7 @@ export function SeeDetailButtonComponent({ text, classStyle, srcImage, productId
             )
 
             if (response.status === 200) {
-                alert("Certo!" + productId)
+                navigate(`/descrição-de-produto/${productId}`, { state: { productId } });
             }
         } catch (err: unknown) {
             alert(err)

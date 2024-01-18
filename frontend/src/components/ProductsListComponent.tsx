@@ -16,8 +16,8 @@ interface Product {
 
 export function ProductsListComponent() {
     const [products, setProducts] = useState<Product[]>([]);
-    useEffect(() => {
 
+    useEffect(() => {
         async function getProducts() {
             try {
                 const response = await axios.get('http://localhost:8000/api/products');
