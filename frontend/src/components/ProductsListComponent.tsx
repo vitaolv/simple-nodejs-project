@@ -69,13 +69,13 @@ export function ProductsListComponent() {
                 <div className="NoData">
                     <img src="../../public/noData.svg" alt="Sem-dados" />
                     <h4>Opa! Não temos produtos cadastrados.</h4>
-                    <p>Sem problemas, pode
-                        <a href="http://localhost:5173/cadastro-de-produto">
-                            clicar aqui
-                        </a>
-                        para adicionar um novo produto.
+                    <p>
+                        Sem problemas,
+                        você pode <a href="http://localhost:5173/cadastro-de-produto">clicar aqui</a> para
+                        adicionar um novo produto.
                     </p>
                 </div>
+
             )}
 
         </ul>
