@@ -8,8 +8,7 @@ import { ToBackButtonComponent } from "../components/ToBackButtonComponent";
 
 export function DescriptionProductPage() {
     const location = useLocation();
-    const product = location.state?.productId
-    console.log(product)
+    const product = location.state?.product
 
     return (
         <div className="ul-detailProduct">
