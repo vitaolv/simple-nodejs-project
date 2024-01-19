@@ -2,7 +2,7 @@
 
 .buttonPrimary
     border: 2px solid $primary
-    color: $tertiary
+    color: $secondary
     background: $primary
     border-radius: 8px
     height: 38px
@@ -15,13 +15,14 @@
     justify-content: center
 
     &:hover
-        border: 2px solid $primary
-        color: $primary
-        background: $secondary
+        border: 2px solid $dark
+        color: $tertiary
+        background: $dark
+
     &:active
-        border: 2px solid $primary
-        color: $primary
-        background: $inputs
+        border: 2px solid $dark
+        color: $dark
+        background: $tertiary
 
     & img
         background: none
@@ -29,4 +30,4 @@
         margin-right: 5px
 
 .buttonPrimary:active img
-    filter: invert(20%) brightness(140%)
+    filter: invert(200%) brightness(30%)
