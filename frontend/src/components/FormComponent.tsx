@@ -9,7 +9,7 @@ export function FormComponent() {
     const [productDescription, setProductDescription] = useState<string>('');
     const [productPrice, setProductPrice] = useState<string>('');
 
-    const productPriceNumber = parseFloat(productPrice); // Ensure it's a valid number
+    const productPriceNumber = parseFloat(productPrice);
 
 
     async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -37,21 +37,21 @@ export function FormComponent() {
             <form className="formSection" onSubmit={handleFormSubmit}>
                 <div className="formDisplay">
                     <label>
-                        Código do produto:
-
-                        <input
-                            type='number'
-                            value={productCode}
-                            onChange={(e) => setProductCode(e.target.value)} />
-
-                    </label>
-                    <label>
                         Nome do produto:
 
                         <input
                             type='text'
                             value={productName}
                             onChange={(e) => setProductName(e.target.value)} />
+
+                    </label>
+                    <label>
+                        Código do produto:
+
+                        <input
+                            type='number'
+                            value={productCode}
+                            onChange={(e) => setProductCode(e.target.value)} />
 
                     </label>
                     <label>
@@ -72,7 +72,10 @@ export function FormComponent() {
                         onChange={(e) => setProductDescription(e.target.value)} />
                 </label>
 
-                <button className="buttonPrimary" type="submit">Salvar</button>
+                <button className="buttonPrimary" type="submit">
+                    <img src="../../public/save.svg" alt="Save" />
+                    Salvar
+                </button>
             </form>
         </div>
     )

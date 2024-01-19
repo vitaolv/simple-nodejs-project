@@ -1,5 +1,32 @@
-.primaryButton
+@import "../App"
+
+.buttonPrimary
+    border: 2px solid $primary
+    color: $tertiary
+    background: $primary
+    border-radius: 8px
+    height: 38px
+    width: 114px
+    font-weight: bold
+    transition: 0.2s ease-out
+    display: flex
+    align-items: center
+    align-self: flex-end
+    justify-content: center
 
     &:hover
-
+        border: 2px solid $primary
+        color: $primary
+        background: $secondary
     &:active
+        border: 2px solid $primary
+        color: $primary
+        background: $inputs
+
+    & img
+        background: none
+        width: 18px
+        margin-right: 5px
+
+.buttonPrimary:active img
+    filter: invert(20%) brightness(140%)

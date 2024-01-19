@@ -29,7 +29,7 @@ export function SeeDetailButtonComponent({ text, classStyle, srcImage, product }
             )
 
             if (response.status === 200) {
-                navigate(`/descrição-de-produto/${product.id}`, { state: { product } });
+                navigate(`/descrição-de-produto/${product.productName}`, { state: { product } });
             }
         } catch (err: unknown) {
             alert(err)
