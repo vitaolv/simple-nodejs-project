@@ -28,6 +28,9 @@ Prisma ORM
 <li>
 PostgreSQL
 </li>
+<li>
+React Router Dom
+</li>
 
 </ul>
 

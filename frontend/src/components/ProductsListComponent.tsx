@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-import "../styles/productsList.sass"
+import "../pages/HomePage/styles/productsList.sass"
 import "../styles/noData.sass"
 
 import { DeleteButtonComponent } from "./DeleteButtonComponent";
@@ -58,7 +58,7 @@ export function ProductsListComponent() {
                     </span>
                     <div className="displayButtons">
                         <span>
-                            <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
+                            <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" product={product} />
                         </span>
                         <span>
                             <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />

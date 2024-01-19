@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
 
-import '../styles/DescriptionProductPage.sass'
-import { DeleteButtonComponent } from "../components/DeleteButtonComponent";
-import { UpdateButtonComponent } from "../components/UpdateButtonComponent";
-import { ToBackButtonComponent } from "../components/ToBackButtonComponent";
+import '../DescriptionPage/styles/DescriptionProductPage.sass'
+import { DeleteButtonComponent } from "../../components/DeleteButtonComponent";
+import { UpdateButtonComponent } from "../../components/UpdateButtonComponent";
+import { ToBackButtonComponent } from "../../components/ToBackButtonComponent";
 
 
 export function DescriptionProductPage() {
@@ -38,7 +38,7 @@ export function DescriptionProductPage() {
                         </span>
                         <div className="displayButtonsInDescriptionProductPage">
                             <span>
-                                <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" productId={product.id} />
+                                <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" product={product} />
                             </span>
                             <span>
                                 <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
