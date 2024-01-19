@@ -1,8 +1,9 @@
 @import "../../../App"
 
 .UpdatePage
-    margin-top: 5vh
+    margin-top: 2vh
     padding: 20px
+    height: 76.9vh
 
     h3
         font-size: 28px
@@ -20,6 +21,10 @@
         padding: 24px
         border-radius: 20px
         margin: 0 auto
+
+    img
+        width: 16px
+        margin-right: 8px
 
     label
         display: flex
@@ -75,6 +80,10 @@
         .updateFormDisplay label:nth-child(3)
             grid-column: 1 / span 2
             grid-row: 2
+
+        .updateFormDisplay .buttonPrimary
+            grid-column: 1 / span 2
+            justify-self: center
 
     #textareaDescriptionRegisterProduct
         height: 124px
