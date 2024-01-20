@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useState, } from 'react';
 import axios from 'axios';
+import { ToBackButtonComponent } from "../../components/ToBackButtonComponent";
 
 export interface Product {
     readonly id: string;
@@ -43,16 +44,16 @@ export function UpdateProductPage() {
 
     return (
         <section className='UpdatePage'>
-            <h3>
-                Editar o produto cadastrado
-            </h3>
-
+            <div className='displayUpdatePage'>
+                <h3>
+                    Editar o produto cadastrado
+                </h3>
+                <ToBackButtonComponent text="Voltar para lista" classStyle="secundaryButton" srcImage="../../../public/toBack.svg" />
+            </div>
             <UpdateFormComponent
                 initialProduct={location.state?.product}
                 onSubmit={handleFormSubmit}
                 isLoading={isLoading} />
-
-
         </section>
     );
 }
