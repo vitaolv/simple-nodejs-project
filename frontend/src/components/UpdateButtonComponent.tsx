@@ -14,7 +14,7 @@ export function UpdateButtonComponent({ text, classStyle, srcImage, product }: T
 
     const handleUpdateButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-        navigate(`/editar-o-produto/${product.productName}`, { state: { product } })
+        navigate(`/editar-o-produto/${product.id}`, { state: { product } })
     }
 
     return (
