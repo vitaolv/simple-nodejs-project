@@ -1,9 +1,9 @@
-import '../styles/header.sass'
+import '../HeaderComponent/styles/header.sass'
 
 export function HeaderComponent() {
     return (
         <div className='header'>
-            <img src="../../public/logo.svg" alt="logo" />
+            <img src="../../../../public/logo.svg" alt="logo" />
             <nav>
                 <ul id="navList">
                     <li><a href="/home">Início</a></li>

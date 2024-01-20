@@ -1,12 +1,12 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-import "../pages/HomePage/styles/productsList.sass"
-import "../styles/noData.sass"
+import "../../pages/HomePage/styles/productsList.sass"
+import "../../pages/HomePage/styles/noData.sass"
 
-import { DeleteButtonComponent } from "./DeleteButtonComponent";
-import { UpdateButtonComponent } from "./UpdateButtonComponent";
-import { SeeDetailButtonComponent } from "./SeeDetailButtonComponent";
+import { DeleteButtonComponent } from "../DeleteButtonComponent/DeleteButtonComponent";
+import { UpdateButtonComponent } from "../UpdateComponents/UpdateButtonComponent/UpdateButtonComponent";
+import { SeeDetailButtonComponent } from "../SeeDetailButtonComponent/SeeDetailButtonComponent";
 
 interface Product {
     id: string,
@@ -54,11 +54,11 @@ export function ProductsListComponent() {
                         <p className="li-item">{product.productPrice}</p>
                     </span>
                     <span>
-                        <SeeDetailButtonComponent text="Ver descrição" classStyle="secundaryButton" srcImage="../../public/see.svg" product={product} />
+                        <SeeDetailButtonComponent text="Ver descrição" classStyle="secondaryButton" srcImage="../../public/see.svg" product={product} />
                     </span>
                     <div className="displayButtons">
                         <span>
-                            <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" product={product} />
+                            <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
                         </span>
                         <span>
                             <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />

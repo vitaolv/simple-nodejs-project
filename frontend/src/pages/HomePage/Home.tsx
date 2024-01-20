@@ -1,5 +1,5 @@
-import { ProductsListComponent } from "../../components/ProductsListComponent"
-import "./styles/productsList.sass"
+import { ProductsListComponent } from "../../components/ProductListComponent/ProductsListComponent"
+import "../HomePage/styles/productsList.sass"
 
 export function Home() {
     return (

@@ -1,7 +1,21 @@
 import axios from "axios"
 import { useState } from "react"
 
+interface Product {
+    id: string,
+    productCode: string,
+    productName: string,
+    productDescription: string,
+    productPrice: number,
+}
 
+interface TypesSaveButtonComponent {
+    readonly product: Product;
+    readonly productId: string;
+    readonly text: string;
+    readonly classStyle: string;
+    readonly srcImage: string;
+}
 
 
 export function SaveUptadeButtonComponent({ text, classStyle, srcImage, product }: TypesSaveButtonComponent) {

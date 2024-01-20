@@ -1,11 +1,11 @@
 import "../UpdatePage/styles/updateProductPage.sass"
 
-import { UpdateFormComponent } from '../../components/UpdateFormComponent';
+import { UpdateFormComponent } from '../../components/UpdateComponents/UpdateFormComponent/UpdateFormComponent';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useState, } from 'react';
 import axios from 'axios';
-import { ToBackButtonComponent } from "../../components/ToBackButtonComponent";
+import { ToBackButtonComponent } from "../../components/ToBackButtonComponent/ToBackButtonComponent";
 
 export interface Product {
     readonly id: string;
@@ -48,7 +48,7 @@ export function UpdateProductPage() {
                 <h3>
                     Editar o produto cadastrado
                 </h3>
-                <ToBackButtonComponent text="Voltar para lista" classStyle="secundaryButton" srcImage="../../../public/toBack.svg" />
+                <ToBackButtonComponent text="Voltar para lista" classStyle="secondaryButton" srcImage="../../../public/toBack.svg" />
             </div>
             <UpdateFormComponent
                 initialProduct={location.state?.product}
