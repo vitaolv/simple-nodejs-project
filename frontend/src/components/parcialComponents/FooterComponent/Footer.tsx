@@ -1,4 +1,5 @@
-import '../styles/footer.sass'
+import '../../../components/parcialComponents/FooterComponent/styles/footer.sass'
+
 
 export function FooterComponent() {
     return (

@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
 
 import '../DescriptionPage/styles/DescriptionProductPage.sass'
-import { DeleteButtonComponent } from "../../components/DeleteButtonComponent";
-import { UpdateButtonComponent } from "../../components/UpdateButtonComponent";
-import { ToBackButtonComponent } from "../../components/ToBackButtonComponent";
+import { DeleteButtonComponent } from "../../components/DeleteButtonComponent/DeleteButtonComponent";
+import { UpdateButtonComponent } from "../../components/UpdateComponents/UpdateButtonComponent/UpdateButtonComponent";
+import { ToBackButtonComponent } from "../../components/ToBackButtonComponent/ToBackButtonComponent";
 
 
 export function DescriptionProductPage() {
@@ -14,7 +14,7 @@ export function DescriptionProductPage() {
         <div className="ul-detailProduct">
             <h3>Detalhe do produto cadastrado</h3>
             <span>
-                <ToBackButtonComponent text="Voltar para lista" classStyle="secundaryButton" srcImage="../../public/toBack.svg" />
+                <ToBackButtonComponent text="Voltar para lista" classStyle="secondaryButton" srcImage="../../public/toBack.svg" />
             </span>
             <ul>
                 {product && (
@@ -38,7 +38,7 @@ export function DescriptionProductPage() {
                         </span>
                         <div className="displayButtonsInDescriptionProductPage">
                             <span>
-                                <UpdateButtonComponent text="Editar" classStyle="secundaryButton" srcImage="../../public/edit.svg" product={product} />
+                                <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
                             </span>
                             <span>
                                 <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />

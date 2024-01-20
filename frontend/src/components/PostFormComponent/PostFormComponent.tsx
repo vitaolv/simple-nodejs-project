@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
-import '../styles/form.sass'
+import '../../components/PostFormComponent/styles/form.sass'
 
-export function FormComponent() {
+export function PostFormComponent() {
     const [productCode, setProductCode] = useState<string>('');
     const [productName, setProductName] = useState<string>('');
     const [productDescription, setProductDescription] = useState<string>('');
