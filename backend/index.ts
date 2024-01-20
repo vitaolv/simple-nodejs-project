@@ -65,7 +65,6 @@ app.post('/api/products', async (req, res) => {
         })
         res.status(200).json(newData);
     } catch (err: unknown) {
-        console.log(err);
         res.status(500).json({error: "Erro ao criar um novo produto."});
 
     } finally {
@@ -95,9 +94,10 @@ app.delete("/api/products/:id", async (req, res) => {
     }
 })
 
-app.patch('/api/produtcs/:id', async (req, res) => {
+app.patch('/api/products/:id', async (req, res) => {
     try {
         const productId = req.params.id
+
         if(!productId) {
             res.status(404).json({ message: "ID do produto não encontrado."})
         }
@@ -109,7 +109,7 @@ app.patch('/api/produtcs/:id', async (req, res) => {
                 productPrice } = req.body
 
         const editedProduct = await prisma.product.update({
-            where: { id },
+            where: { id: productId  },
             data: {
                     productCode,
                     productName,
@@ -119,7 +119,7 @@ app.patch('/api/produtcs/:id', async (req, res) => {
             })
             res.status(200).json({ message: "O produto foi atualizado com sucesso!"})
     } catch (err : unknown) {
-        res.status(500).json({ error: 'Erro ao editar o produto.' })
+        res.status(504).json({ error: 'Erro ao editar o produto.' })
     } finally {
         await prisma.$disconnect()
     }

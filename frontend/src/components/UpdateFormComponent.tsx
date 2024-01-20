@@ -1,77 +1,76 @@
-// FormFields.jsx
-import { useState } from 'react';
 import { Product } from '../pages/UpdatePage/UpdateProductPage';
-
-interface FormFieldsProps {
-    product: Product;
+import { useState, useEffect } from 'react';
+interface UpdateFormProps {
+    initialProduct: Product;
+    onSubmit: (updatedProduct: Product) => void;
     isLoading: boolean;
-    onProductChange: (product: Product) => void;
 }
 
-export function UpdateFormComponent({ product, onProductChange, isLoading }: FormFieldsProps) {
-    const [productCode, setProductCode] = useState(product.productCode);
-    const [productName, setProductName] = useState(product.productName);
-    const [productPrice, setProductPrice] = useState(product.productPrice);
-    const [productDescription, setProductDescription] = useState(product.productDescription);
+export function UpdateFormComponent({
+    initialProduct,
+    onSubmit,
+    isLoading,
+}: UpdateFormProps) {
+    const [product, setProduct] = useState<Product>(initialProduct);
 
-    const handleProductChange = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const updatedData = {
-            ...product,
-        };
+    useEffect(() => {
+        setProduct(initialProduct);
+    }, [initialProduct]);
 
-        onProductChange(updatedData);
+
+    const handleInternalSubmit = (field: keyof Product, value: string | number) => {
+        setProduct((prevProduct) => ({
+            ...prevProduct,
+            [field]: value,
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        onSubmit(product);
+
     };
 
     return (
-        <form className="updateFormDisplay" onSubmit={handleProductChange}>
+        <form className="updateFormDisplay" onSubmit={handleSubmit}>
             <label>
                 Nome do produto:
-
                 <input
                     type="text"
-                    value={productName}
-                    placeholder={productName}
+                    value={product?.productName}
+                    placeholder={product.productName}
                     disabled={isLoading}
-
-                    onChange={(e) => setProductName(e.target.value)}
+                    onChange={(e) => handleInternalSubmit('productName', e.target.value)}
                 />
-
             </label>
             <label>
                 Código do produto:
-
                 <input
                     type="number"
-                    value={productCode}
-                    placeholder={productCode}
+                    value={product?.productCode}
+                    placeholder={product.productCode}
                     disabled={isLoading}
-                    onChange={(e) => setProductCode(e.target.value)}
+                    onChange={(e) => handleInternalSubmit('productCode', e.target.value)}
                 />
-
             </label>
             <label>
                 Preço:
-
                 <input
-                    value={productPrice}
-                    placeholder={productPrice.toString()}
+                    value={product?.productPrice}
+                    placeholder={product?.productPrice?.toString() || ''}
                     disabled={isLoading}
-                    onChange={(e) => setProductPrice(Number(e.target.value))}
+                    onChange={(e) => handleInternalSubmit('productPrice', parseFloat(e.target.value))}
                 />
-
             </label>
             <label>
                 Descrição:
-
                 <textarea
                     id="textareaDescriptionRegisterProduct"
-                    value={productDescription}
-                    placeholder={productDescription}
+                    value={product?.productDescription}
+                    placeholder={product.productDescription}
                     disabled={isLoading}
-                    onChange={(e) => setProductDescription(e.target.value)}
+                    onChange={(e) => handleInternalSubmit('productDescription', e.target.value)}
                 />
-
             </label>
             <button type='submit' className='buttonPrimary'>
                 <img src="../../public/save.svg" alt="Save" />

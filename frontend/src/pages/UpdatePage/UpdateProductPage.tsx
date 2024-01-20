@@ -1,42 +1,37 @@
 import "../UpdatePage/styles/updateProductPage.sass"
 
-import { useLocation } from 'react-router-dom';
-
 import { UpdateFormComponent } from '../../components/UpdateFormComponent';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { useState, useEffect } from 'react';
+import { useState, } from 'react';
 import axios from 'axios';
 
 export interface Product {
     readonly id: string;
-    readonly productCode: string;
-    readonly productName: string;
-    readonly productDescription: string;
-    readonly productPrice: number;
+    productCode: string;
+    productName: string;
+    productDescription: string;
+    productPrice: number;
 }
 
 export function UpdateProductPage() {
-    const [isLoading, setIsLoading] = useState(false);
-    const [product, setProduct] = useState<Product>();
-    const location = useLocation();
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        if (location.state?.product) {
-            setProduct(location.state.product);
-        }
-    }, []);
+    const location = useLocation()
 
-    const handleFormSubmit = async () => {
+
+    const handleFormSubmit = async (updatedProduct: Product) => {
         setIsLoading(true);
 
         try {
-            const response = await axios.put(`http://localhost:8000/api/products/${product?.id}`, product);
-            console.log(response);
+            const response = await axios.patch(`http://localhost:8000/api/products/${updatedProduct.id}`, {
+                ...updatedProduct,
+            });
+
             if (response.status === 200) {
                 alert("Produto foi atualizado!");
-                navigate("/home")
+                navigate("/home");
             }
         } catch (error) {
             alert(error);
@@ -45,16 +40,19 @@ export function UpdateProductPage() {
         }
     };
 
+
     return (
         <section className='UpdatePage'>
             <h3>
                 Editar o produto cadastrado
             </h3>
-            <form className="UpdateFormSection" onSubmit={handleFormSubmit}>
-                {product && (
-                    <UpdateFormComponent product={product} onProductChange={setProduct} isLoading={isLoading} />
-                )}
-            </form>
+
+            <UpdateFormComponent
+                initialProduct={location.state?.product}
+                onSubmit={handleFormSubmit}
+                isLoading={isLoading} />
+
+
         </section>
     );
 }
