@@ -1,15 +1,24 @@
 import * as types from "../Types"
 
-const initialState = {
-    modalIsOpen: false,
+interface TypesModalConfirmState {
+    modalIsOpen: boolean;
+    confirmationResult: boolean | null;
 }
 
-export function modalConfirmReducer(state = initialState, action: { type: string }) {
+const initialState: TypesModalConfirmState = {
+    modalIsOpen: false,
+    confirmationResult: null,
+}
+
+export function modalConfirmReducer(state: TypesModalConfirmState = initialState,
+    action: { type: string; payload?: boolean }
+) {
     switch (action.type) {
         case types.MODAL_CONFIRM_IS_OPEN: {
             return {
                 ...state,
                 modalIsOpen: true,
+                confirmationResult: null,
             }
         }
 
@@ -17,9 +26,16 @@ export function modalConfirmReducer(state = initialState, action: { type: string
             return {
                 ...state,
                 modalIsOpen: false,
+                confirmationResult: null,
             }
         }
 
+        case types.CONFIRM_ACTION_RESULT: {
+            return {
+                ...state,
+                confirmationResult: action.payload,
+            }
+        }
         default: {
             return state;
         }
