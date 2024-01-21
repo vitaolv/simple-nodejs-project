@@ -2,12 +2,12 @@ import * as types from "../Types"
 
 interface TypesModalConfirmState {
     modalIsOpen: boolean;
-    confirmationResult: boolean | null;
+    confirmationResult: boolean | undefined;
 }
 
 const initialState: TypesModalConfirmState = {
     modalIsOpen: false,
-    confirmationResult: null,
+    confirmationResult: undefined,
 }
 
 export function modalConfirmReducer(state: TypesModalConfirmState = initialState,
@@ -17,8 +17,7 @@ export function modalConfirmReducer(state: TypesModalConfirmState = initialState
         case types.MODAL_CONFIRM_IS_OPEN: {
             return {
                 ...state,
-                modalIsOpen: true,
-                confirmationResult: null,
+                modalIsOpen: action.payload
             }
         }
 
@@ -26,7 +25,6 @@ export function modalConfirmReducer(state: TypesModalConfirmState = initialState
             return {
                 ...state,
                 modalIsOpen: false,
-                confirmationResult: null,
             }
         }
 

@@ -1,40 +1,24 @@
-import { useState } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { modalConfirmIsOpenAction } from "../../store/actions/modalConfirmAction";
 
 interface TypesDeleteButtonComponent {
-    readonly productId: string;
     readonly text: string;
     readonly classStyle: string;
     readonly srcImage: string;
 }
 
 
-export function DeleteButtonComponent({ text, classStyle, srcImage, productId }: TypesDeleteButtonComponent) {
-    const [isLoading, setIsLoading] = useState(false)
+export function DeleteButtonComponent({ text, classStyle, srcImage }: TypesDeleteButtonComponent) {
+    const dispatch = useDispatch();
 
-    const handleDeleteButtonClick = async () => {
-        setIsLoading(true)
+    const handleDeleteButtonClick = () => {
+        dispatch(modalConfirmIsOpenAction());
+    };
 
-        try {
-            const response = await axios.delete(`http://localhost:8000/api/products/${productId}`, {
-                method: 'DELETE'
-            })
 
-            if (response.status === 204) {
-                window.location.reload();
-                alert('Success!');
-            }
-            setIsLoading(false);
-
-        } catch (err: unknown) {
-            alert(err)
-        }
-
-    }
     return (
         <button
             className={`${classStyle} `}
-            disabled={isLoading}
             onClick={handleDeleteButtonClick}
         >
             <img src={srcImage} alt={text} />
