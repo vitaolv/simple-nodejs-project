@@ -137,6 +137,8 @@ Este projeto foi desenvolvido com o objetivo, independente das tecnologias utili
 
 Um detalhe curioso: este foi o meu primeiro desafio de CRUD e também o primeiro projeto a envolver o Node.js. O aprendizado foi rápido, com acertos e erros, sem medo de enfrentar os desafios! É muito gratificante adquirir experiências durante este projeto.
 
+Vale ressaltar também que não utilizei Bootstrap, Material UI, Ant Design e afins. Todos os componentes foram desenvolvidos em TS-react Sass. Apesar da desvantagem em termos de tempo de desenvolvimento, essa abordagem proporcionou maior liberdade no design, menos dependências e personalização dos componentes, alinhando-se melhor às necessidades específicas do projeto.
+
 E ainda não paramos por aqui, pois o aprendizado, as novas experiências e a evolução são contínuos.
 
 Próximas etapas do projeto:
