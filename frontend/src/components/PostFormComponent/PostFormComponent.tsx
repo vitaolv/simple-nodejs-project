@@ -22,7 +22,6 @@ export function PostFormComponent() {
                 productDescription,
                 productPrice: productPriceNumber
             });
-            console.log(response)
             if (response.status === 200) {
                 window.location.reload();
                 alert('Success!');

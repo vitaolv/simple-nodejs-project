@@ -32,7 +32,6 @@ export function SaveUptadeButtonComponent({ text, classStyle, srcImage, product 
                 productDescription: product.productDescription,
                 productPrice: product.productPrice
             });
-            console.log(response)
             if (response.status === 200) {
                 window.location.reload();
                 alert('Success!');
