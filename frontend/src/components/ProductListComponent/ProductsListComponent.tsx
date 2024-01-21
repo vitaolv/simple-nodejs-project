@@ -7,6 +7,9 @@ import "../../pages/HomePage/styles/noData.sass"
 import { DeleteButtonComponent } from "../DeleteButtonComponent/DeleteButtonComponent";
 import { UpdateButtonComponent } from "../UpdateComponents/UpdateButtonComponent/UpdateButtonComponent";
 import { SeeDetailButtonComponent } from "../SeeDetailButtonComponent/SeeDetailButtonComponent";
+import { ModalConfirmToDeleteComponent } from "../ModalComponent/ModalConfirmToDeleteComponent";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 interface Product {
     id: string,
@@ -18,6 +21,8 @@ interface Product {
 
 export function ProductsListComponent() {
     const [products, setProducts] = useState<Product[]>([]);
+    const showModal = useSelector((state: RootState) => state.modalConfirm.modalIsOpen);
+
 
     useEffect(() => {
         async function getProducts() {
@@ -61,9 +66,17 @@ export function ProductsListComponent() {
                             <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
                         </span>
                         <span>
-                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
+                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" />
                         </span>
                     </div>
+
+                    {showModal &&
+                        (
+                            <ModalConfirmToDeleteComponent
+                                textHeader={`Deletar o produto ${product.productName}`}
+                                textAlert="Tem certeza de que deseja deletar este produto da lista dos produtos cadastrados?"
+                                productId={product.id}
+                            />)}
                 </li>
             ))) : (
                 <div className="NoData">
