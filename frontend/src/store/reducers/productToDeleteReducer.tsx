@@ -9,7 +9,7 @@ const productToDeleteReducer = createSlice({
     name: 'productBeingDeleted',
     initialState: null as Product | null,
     reducers: {
-        setProductBeingDeleted: (state, action: PayloadAction<Product | null>) => action.payload,
+        setProductBeingDeleted: (_, action: PayloadAction<Product | null>) => action.payload,
     },
 });
 
