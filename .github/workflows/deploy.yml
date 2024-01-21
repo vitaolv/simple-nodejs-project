@@ -23,6 +23,7 @@ jobs:
         run: |
           cd backend && npm install
           cd ../frontend && npm install
+          cd ../frontend && npm install react-router-dom
 
       - name: Build backend and frontend
         run: |
