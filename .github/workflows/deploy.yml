@@ -24,7 +24,7 @@ jobs:
           cd backend && npm install
           cd ../frontend && npm install
           cd ../frontend && npm install react-router-dom
-          npm install -g vite
+          cd ../frontend && npm install vite
 
       - name: Build backend and frontend
         run: |
