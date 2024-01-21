@@ -1,16 +1,16 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
 
 import "../../pages/HomePage/styles/productsList.sass"
-import "../../pages/HomePage/styles/noData.sass"
 
 import { DeleteButtonComponent } from "../DeleteButtonComponent/DeleteButtonComponent";
 import { UpdateButtonComponent } from "../UpdateComponents/UpdateButtonComponent/UpdateButtonComponent";
 import { SeeDetailButtonComponent } from "../SeeDetailButtonComponent/SeeDetailButtonComponent";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
 import { isLoadingAction } from "../../store/actions/isLoadingAction";
 import { LoadingComponent } from "../LoadingComponent/LoadingComponent";
+import { NoDataImg } from "../NoDataImgComponent.tsx/NoDataImgComponent";
+import { RootState } from "../../store";
 
 interface Product {
     id: string,
@@ -82,18 +82,7 @@ export function ProductsListComponent() {
                     </div>
                 </li>
             ))) : (
-                <div className="NoData">
-                    <LoadingComponent text="Atualizando os dados..." isLoading={isLoading} />
-
-                    <img src="../../public/noData.svg" alt="Sem-dados" />
-                    <h4>Opa! Não temos produtos cadastrados.</h4>
-                    <p>
-                        Sem problemas,
-                        você pode <a href="http://localhost:5173/cadastro-de-produto">clicar aqui</a> para
-                        adicionar um novo produto.
-                    </p>
-                </div>
-
+                <NoDataImg />
             )}
 
         </ul>
