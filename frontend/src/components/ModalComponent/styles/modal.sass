@@ -16,6 +16,7 @@
         font-size: 1.2rem
         text-align: start
         font-weight: bold
+        background: $secondary
 
     &.active
         opacity: 1
@@ -24,12 +25,13 @@
     &__content
         width: 500px
         margin: 15% auto
-        border-radius: 5px
+        border-radius: 15px
         position: relative
         transition: inherit
         opacity: 0
         visibility: hidden
         transform: translateY(-100px)
+        border: 2px solid $primary
 
     &.active &__content
         opacity: 1
@@ -41,6 +43,8 @@
     &__footer
         padding: 16px 20px
         text-align: start
+        border-radius: 15px
+        background: $secondary
 
     //O botão "X" não é necessário, é opcional. Então, escondo ele.
     &__close
@@ -59,6 +63,7 @@
     display: flex
     gap: 10px
     justify-content: end
+    background: $secondary
 
 @media (max-width:348)
     .buttonsModalConfirm
