@@ -1,7 +1,7 @@
 import "../UpdatePage/styles/updateProductPage.sass"
 
 import { UpdateFormComponent } from '../../components/UpdateComponents/UpdateFormComponent/UpdateFormComponent';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import { useState, } from 'react';
 import axios from 'axios';
