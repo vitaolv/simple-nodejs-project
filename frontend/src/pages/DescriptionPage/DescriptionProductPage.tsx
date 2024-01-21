@@ -41,7 +41,7 @@ export function DescriptionProductPage() {
                                 <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
                             </span>
                             <span>
-                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" productId={product.id} />
+                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" />
                             </span>
                         </div>
                     </li>
