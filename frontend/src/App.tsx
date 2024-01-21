@@ -13,6 +13,9 @@ import { useEffect } from 'react'
 import { UpdateProductPage } from './pages/UpdatePage/UpdateProductPage.tsx'
 import { useSelector } from 'react-redux'
 import { RootState } from './store/index.tsx'
+import { ModalConfirmToDeleteComponent } from './components/ModalComponent/ModalConfirmToDeleteComponent.tsx'
+
+
 
 function RootRoute() {
   const navigate = useNavigate();
@@ -25,9 +28,21 @@ function RootRoute() {
 }
 
 function App() {
+  const showModal = useSelector((state: RootState) => state.modalConfirm.modalIsOpen);
+  const productId = useSelector((state: RootState) => state.productToDelete?.id);
+  const productName = useSelector((state: RootState) => state.productToDelete?.productName);
+
+
   return (
     <div className='AppBody'>
       <HeaderComponent />
+      {showModal && productId && productName &&
+        (
+          <ModalConfirmToDeleteComponent
+            textHeader={`Deletar o produto ${productName}`}
+            textAlert="Deseja mesmo excluir este produto da lista?"
+            productId={productId}
+          />)}
       <Routes>
         <Route path='/' element={<RootRoute />} />
         <Route path='/home' index element={<Home />} />
