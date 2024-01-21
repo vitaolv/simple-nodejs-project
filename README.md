@@ -56,8 +56,3 @@ Próximas etapas do projeto:
 </p>
 
 </div>
-
-Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
-Nenhum arquivo escolhido
-Attach files by dragging & dropping, selecting or pasting them.
-Editing simple-nodejs-project/README.md at main · vitaolv/simple-nodejs-project
