@@ -7,7 +7,6 @@ import "../../pages/HomePage/styles/noData.sass"
 import { DeleteButtonComponent } from "../DeleteButtonComponent/DeleteButtonComponent";
 import { UpdateButtonComponent } from "../UpdateComponents/UpdateButtonComponent/UpdateButtonComponent";
 import { SeeDetailButtonComponent } from "../SeeDetailButtonComponent/SeeDetailButtonComponent";
-import { ModalConfirmToDeleteComponent } from "../ModalComponent/ModalConfirmToDeleteComponent";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { isLoadingAction } from "../../store/actions/isLoadingAction";
@@ -23,7 +22,6 @@ interface Product {
 
 export function ProductsListComponent() {
     const [products, setProducts] = useState<Product[]>([]);
-    const showModal = useSelector((state: RootState) => state.modalConfirm.modalIsOpen);
     const isLoading = useSelector((state: RootState) => state.loading.isLoading);
 
     const dispatch = useDispatch();
@@ -79,17 +77,9 @@ export function ProductsListComponent() {
                             <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
                         </span>
                         <span>
-                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" />
+                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" product={product} />
                         </span>
                     </div>
-
-                    {showModal &&
-                        (
-                            <ModalConfirmToDeleteComponent
-                                textHeader={`Deletar o produto ${product.productName}`}
-                                textAlert="Deseja mesmo excluir este produto da lista?"
-                                productId={product.id}
-                            />)}
                 </li>
             ))) : (
                 <div className="NoData">

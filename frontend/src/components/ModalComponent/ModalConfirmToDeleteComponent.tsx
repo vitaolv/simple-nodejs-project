@@ -1,7 +1,10 @@
 import { RootState } from '../../store';
 import Modal, { ModalBody, ModalFooter, ModalHeader } from './util/ModalUtils';
-import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { confirmResultAction, modalConfirmIsCloseAction } from '../../store/actions/modalConfirmAction';
 interface TypesModalConfirmToDeleteComponent {
     readonly textAlert: string;
@@ -12,6 +15,7 @@ interface TypesModalConfirmToDeleteComponent {
 export function ModalConfirmToDeleteComponent({ textAlert, textHeader, productId }: TypesModalConfirmToDeleteComponent) {
     const showModal = useSelector((state: RootState) => state.modalConfirm.modalIsOpen);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleConfirmClick = async () => {
         try {
@@ -20,7 +24,11 @@ export function ModalConfirmToDeleteComponent({ textAlert, textHeader, productId
             });
 
             if (response.status === 204) {
-                window.location.reload();
+                if (window.location.pathname === '/home') {
+                    window.location.reload();
+                } else {
+                    navigate('/home');
+                }
             }
         } catch (err: unknown) {
             alert(err);
