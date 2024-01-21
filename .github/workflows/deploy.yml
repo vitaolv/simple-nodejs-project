@@ -38,8 +38,10 @@ jobs:
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
-          name: production-files
-          path: ./dist
+        name: production-files
+          paths:
+            - ./backend/dist
+            - ./frontend/dist
 
   deploy:
     name: Deploy
