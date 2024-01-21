@@ -11,6 +11,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import { Home } from './pages/HomePage/Home.tsx'
 import { useEffect } from 'react'
 import { UpdateProductPage } from './pages/UpdatePage/UpdateProductPage.tsx'
+import { useSelector } from 'react-redux'
+import { RootState } from './store/index.tsx'
 
 function RootRoute() {
   const navigate = useNavigate();
@@ -26,7 +28,6 @@ function App() {
   return (
     <div className='AppBody'>
       <HeaderComponent />
-
       <Routes>
         <Route path='/' element={<RootRoute />} />
         <Route path='/home' index element={<Home />} />
