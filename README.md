@@ -34,7 +34,7 @@ React Router Dom
 Redux
 </ul>
 
-##E ainda não paramos por aqui, pois aprendizado, novas experiências e evolução são contínuos.
+# E ainda não paramos por aqui, pois aprendizado, novas experiências e evolução são contínuos.
 
 <p>
 Este projeto foi desenvolvido com o objetivo, independente das tecnologias utilizadas, de criar um CRUD desafiador com funcionalidade de busca, proporcionando ao usuário a facilidade de encontrar os produtos listados.
