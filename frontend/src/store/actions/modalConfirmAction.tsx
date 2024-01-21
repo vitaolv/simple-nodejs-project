@@ -1,7 +1,6 @@
 import * as types from "../Types"
 
 export function modalConfirmIsOpenAction() {
-    console.log('MODAL_CONFIRM_IS_OPEN action dispatched')
     return {
         type: types.MODAL_CONFIRM_IS_OPEN,
         payload: true
@@ -9,8 +8,6 @@ export function modalConfirmIsOpenAction() {
 }
 
 export function modalConfirmIsCloseAction() {
-    console.log('MODAL_CONFIRM_IS_OPEN action dispatched');
-
     return {
         type: types.MODAL_CONFIRM_IS_CLOSE
     }

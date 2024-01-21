@@ -8,8 +8,10 @@ import { DeleteButtonComponent } from "../DeleteButtonComponent/DeleteButtonComp
 import { UpdateButtonComponent } from "../UpdateComponents/UpdateButtonComponent/UpdateButtonComponent";
 import { SeeDetailButtonComponent } from "../SeeDetailButtonComponent/SeeDetailButtonComponent";
 import { ModalConfirmToDeleteComponent } from "../ModalComponent/ModalConfirmToDeleteComponent";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { isLoadingAction } from "../../store/actions/isLoadingAction";
+import { LoadingComponent } from "../LoadingComponent/LoadingComponent";
 
 interface Product {
     id: string,
@@ -22,27 +24,38 @@ interface Product {
 export function ProductsListComponent() {
     const [products, setProducts] = useState<Product[]>([]);
     const showModal = useSelector((state: RootState) => state.modalConfirm.modalIsOpen);
+    const isLoading = useSelector((state: RootState) => state.loading.isLoading);
+
+    const dispatch = useDispatch();
 
 
     useEffect(() => {
-        async function getProducts() {
-            try {
-                const response = await axios.get('http://localhost:8000/api/products');
+        dispatch(isLoadingAction(true));
+        setTimeout(() => {
+            async function getProducts() {
+                try {
+                    const response = await axios.get('http://localhost:8000/api/products');
 
-                if (response.status === 200) {
-                    setProducts(response.data)
+                    if (response.status === 200) {
+                        setProducts(response.data)
+                    }
+
+                } catch (error: unknown) {
+                    alert(error)
+                } finally {
+                    dispatch(isLoadingAction(false))
                 }
-
-            } catch (error: unknown) {
-                alert(error)
             }
-        }
-        getProducts()
+            getProducts()
+            dispatch(isLoadingAction(false));
+        }, 1500);
     }, [])
 
 
     return (
         <ul className="ul-productList">
+            <LoadingComponent text="Atualizando os dados..." isLoading={isLoading} />
+
             {products.length > 0 ? (products.map((product) => (
                 <li key={product.id}>
                     <span>
@@ -80,6 +93,8 @@ export function ProductsListComponent() {
                 </li>
             ))) : (
                 <div className="NoData">
+                    <LoadingComponent text="Atualizando os dados..." isLoading={isLoading} />
+
                     <img src="../../public/noData.svg" alt="Sem-dados" />
                     <h4>Opa! Não temos produtos cadastrados.</h4>
                     <p>
