@@ -87,7 +87,7 @@ export function ProductsListComponent() {
                         (
                             <ModalConfirmToDeleteComponent
                                 textHeader={`Deletar o produto ${product.productName}`}
-                                textAlert="Tem certeza de que deseja deletar este produto da lista dos produtos cadastrados?"
+                                textAlert="Deseja mesmo excluir este produto da lista?"
                                 productId={product.id}
                             />)}
                 </li>

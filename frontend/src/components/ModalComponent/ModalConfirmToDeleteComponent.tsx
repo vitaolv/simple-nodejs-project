@@ -42,16 +42,16 @@ export function ModalConfirmToDeleteComponent({ textAlert, textHeader, productId
                 <h2>{textHeader}</h2>
             </ModalHeader>
             <ModalBody>
-                <p style={{ textAlign: 'justify' }}>
+                <p>
                     {textAlert}
                 </p>
             </ModalBody>
             <ModalFooter>
-                <div>
-                    <button onClick={handleCancelClick}>
+                <div className='buttonsModalConfirmToDeleteComponent'>
+                    <button className='secondaryButton' onClick={handleCancelClick}>
                         Cancelar
                     </button>
-                    <button onClick={handleConfirmClick}>
+                    <button className='buttonPrimary' onClick={handleConfirmClick}>
                         Confirmar
                     </button>
                 </div>

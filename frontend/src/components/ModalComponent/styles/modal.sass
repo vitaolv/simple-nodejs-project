@@ -1,15 +1,21 @@
+@import "../../../App"
 .modal
     opacity: 0
     visibility: hidden
     position: fixed
-    z-index: 1
+    z-index: 9999
     left: 0
     top: 0
     width: 100%
     height: 100%
     overflow: auto
-    background-color: rgba($color: #000000, $alpha: 0.4)
+    background-color: rgba($color: $dark, $alpha: 0.4)
     transition: 0.3s ease-in-out
+
+    h2
+        font-size: 1.2rem
+        text-align: start
+        font-weight: bold
 
     &.active
         opacity: 1
@@ -18,7 +24,6 @@
     &__content
         width: 500px
         margin: 15% auto
-        background-color: #fff
         border-radius: 5px
         position: relative
         transition: inherit
@@ -35,14 +40,33 @@
     &__body,
     &__footer
         padding: 16px 20px
+        text-align: start
 
+    //O botão "X" não é necessário, é opcional. Então, escondo ele.
     &__close
+        visibility: hidden
         position: absolute
         top: 16px
         right: 20px
         font-size: 1.5rem
         cursor: pointer
-        color: #7f7f7f
+        color: $dark
 
-        &:hover
-            color: #000
+    &:hover
+        color: $dark
+
+.buttonsModalConfirmToDeleteComponent
+    display: flex
+    gap: 10px
+    justify-content: end
+
+@media (max-width:348)
+    .buttonsModalConfirmToDeleteComponent
+        align-items: flex-end
+        flex-direction: column-reverse
+
+@media (max-width:586px)
+    .modal
+        padding: 20px
+        &__content
+            width: 100%
