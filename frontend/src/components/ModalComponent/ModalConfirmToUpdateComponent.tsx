@@ -3,13 +3,14 @@ import Modal, { ModalBody, ModalFooter, ModalHeader } from './util/ModalUtils';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { confirmResultAction, modalConfirmIsCloseAction } from '../../store/actions/modalConfirmAction';
-interface TypesModalConfirmToDeleteComponent {
+
+interface TypesModalConfirmToUpdateComponent {
     readonly textAlert: string;
     readonly textHeader: string;
     readonly productId: string;
 }
 
-export function ModalConfirmToDeleteComponent({ textAlert, textHeader, productId }: TypesModalConfirmToDeleteComponent) {
+export function ModalConfirmToUpdateComponent({ textAlert, textHeader, productId }: TypesModalConfirmToUpdateComponent) {
     const showModal = useSelector((state: RootState) => state.modalConfirm.modalIsOpen);
     const dispatch = useDispatch();
 
@@ -46,6 +47,7 @@ export function ModalConfirmToDeleteComponent({ textAlert, textHeader, productId
                 </p>
             </ModalBody>
             <ModalFooter>
+
                 <div className='buttonsModalConfirm'>
                     <button className='secondaryButton' onClick={handleCancelClick}>
                         Cancelar
@@ -53,6 +55,7 @@ export function ModalConfirmToDeleteComponent({ textAlert, textHeader, productId
                     <button className='buttonPrimary' onClick={handleConfirmClick}>
                         Confirmar
                     </button>
+
                 </div>
             </ModalFooter>
         </Modal >

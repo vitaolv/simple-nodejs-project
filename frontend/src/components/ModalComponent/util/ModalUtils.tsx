@@ -12,10 +12,7 @@ const Modal: FC<ModalProps> = ({ show, setShow, hideCloseButton, children }) => 
     const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        console.log('Abriu modal');
-
         const clickOutsideContent = (e: MouseEvent) => {
-            console.log('Clique fora do conteúdo');
             if (modalRef.current && e.target === modalRef.current) {
                 setShow(false);
             }
