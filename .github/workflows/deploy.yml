@@ -29,8 +29,8 @@ jobs:
 
       - name: Build backend and frontend
         run: |
-          cd backend && npx ts-node index.ts
-          cd ../frontend && npm run dev
+          cd backend && tsc
+          cd ../frontend && npm run build
 
       - name: Create .nojekyll file
         run: touch frontend/dist/.nojekyll
