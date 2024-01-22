@@ -1,3 +1,19 @@
+## Passo a Passo para Execução do Projeto
+
+Este projeto é composto por uma aplicação frontend e uma aplicação backend, além de utilizar o Prisma como ORM para conexão com um banco de dados PostgreSQL. Siga os passos abaixo para configurar e executar o projeto localmente.
+
+1. Navegue até o diretório `backend` com o comando `cd backend` e instale as dependências com o comando `npm install`. Em seguida, instale o Prisma com o comando `npm install @prisma/cli`.
+
+2. Volte para o diretório raiz do projeto com o comando `cd ..` e navegue até o diretório `frontend` com o comando `cd frontend`. Instale as dependências com o comando `npm install`.
+
+3. Agora, você precisará executar o cliente (frontend), o servidor (backend) e o Prisma. Abra três terminais separados para cada um deles:
+
+   - No terminal para o backend, execute `node index.js` para iniciar o servidor.
+   - No terminal para o frontend, execute `npm run dev` para iniciar o cliente.
+   - No terminal para o Prisma, execute `npx prisma studio` para iniciar o Prisma Studio.
+
+4. Após iniciar o cliente, copie o link fornecido no terminal e abra-o em seu navegador para explorar o site localmente.
+
 <div>
 <h2>
 Tecnologias utilizadas:

@@ -10,6 +10,7 @@ import { SeeDetailButtonComponent } from "../SeeDetailButtonComponent/SeeDetailB
 import { isLoadingAction } from "../../store/actions/isLoadingAction";
 import { LoadingComponent } from "../LoadingComponent/LoadingComponent";
 import { NoDataImg } from "../NoDataImgComponent.tsx/NoDataImgComponent";
+import { SearchComponent } from "../SearchComponent/SearchComponent";
 import { RootState } from "../../store";
 
 interface Product {
@@ -23,7 +24,7 @@ interface Product {
 export function ProductsListComponent() {
     const [products, setProducts] = useState<Product[]>([]);
     const isLoading = useSelector((state: RootState) => state.loading.isLoading);
-
+    const [search, setSearch] = useState('');
     const dispatch = useDispatch();
 
 
@@ -49,42 +50,54 @@ export function ProductsListComponent() {
         }, 1500);
     }, [])
 
+    const filteredProducts = products.filter(product =>
+        product.productName.toLowerCase().includes(search.toLowerCase()) ||
+        product.productCode.toLowerCase().includes(search.toLowerCase())
+    );
+
+    const handleSearch = (searchValue: string) => {
+        setSearch(searchValue);
+    }
+
 
     return (
-        <ul className="ul-productList">
-            <LoadingComponent text="Atualizando os dados..." isLoading={isLoading} />
+        <div>
 
-            {products.length > 0 ? (products.map((product) => (
-                <li key={product.id}>
-                    <span>
-                        <p className="li-header">Código:</p>
-                        <p className="li-item">{product.productCode}
-                        </p>
-                    </span>
-                    <span>
-                        <p className="li-header">Nome:</p>
-                        <p className="li-item">{product.productName}</p>
-                    </span>
-                    <span>
-                        <p className="li-header">Preço:</p>
-                        <p className="li-item">{product.productPrice}</p>
-                    </span>
-                    <span>
-                        <SeeDetailButtonComponent text="Ver descrição" classStyle="secondaryButton" srcImage="../../public/see.svg" product={product} />
-                    </span>
-                    <div className="displayButtons">
+            <SearchComponent onSearch={handleSearch} />
+            <ul className="ul-productList">
+                <LoadingComponent text="Atualizando os dados..." isLoading={isLoading} />
+
+                {filteredProducts.length > 0 ? (filteredProducts.map((product) => (
+                    <li key={product.id}>
                         <span>
-                            <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
+                            <p className="li-header">Código:</p>
+                            <p className="li-item">{product.productCode}
+                            </p>
                         </span>
                         <span>
-                            <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" product={product} />
+                            <p className="li-header">Nome:</p>
+                            <p className="li-item">{product.productName}</p>
                         </span>
-                    </div>
-                </li>
-            ))) : (
-                <NoDataImg />
-            )}
-
-        </ul>
+                        <span>
+                            <p className="li-header">Preço:</p>
+                            <p className="li-item">{product.productPrice}</p>
+                        </span>
+                        <span>
+                            <SeeDetailButtonComponent text="Ver descrição" classStyle="secondaryButton" srcImage="../../public/see.svg" product={product} />
+                        </span>
+                        <div className="displayButtons">
+                            <span>
+                                <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
+                            </span>
+                            <span>
+                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" product={product} />
+                            </span>
+                        </div>
+                    </li>
+                ))) : (
+                    <NoDataImg />
+                )}
+            </ul>
+        </div>
     )
 }

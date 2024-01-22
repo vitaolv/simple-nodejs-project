@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 import '../../components/PostFormComponent/styles/form.sass'
 
 export function PostFormComponent() {
@@ -8,7 +8,7 @@ export function PostFormComponent() {
     const [productName, setProductName] = useState<string>('');
     const [productDescription, setProductDescription] = useState<string>('');
     const [productPrice, setProductPrice] = useState<string>('');
-
+    const navigate = useNavigate();
     const productPriceNumber = parseFloat(productPrice);
 
 
@@ -23,8 +23,7 @@ export function PostFormComponent() {
                 productPrice: productPriceNumber
             });
             if (response.status === 200) {
-                window.location.reload();
-                alert('Success!');
+                navigate("/home")
             }
         } catch (error: unknown) {
             alert(error);
