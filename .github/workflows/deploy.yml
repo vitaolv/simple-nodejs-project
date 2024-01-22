@@ -19,32 +19,17 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Vite globally
-        run: sudo npm install -g vite
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install frontend dependencies
-        run: cd frontend && npm install react-router-dom vite
-
-      - name: Reinstall frontend dependencies
-        run: |
-          cd frontend
-          rm -rf node_modules/
-          npm install react-router-dom vite
-
-      - name: Reinstall backend dependencies
-        run: |
-          cd backend
-          rm -rf node_modules/
-          npm install
-          npm install --save-dev @types/node
+        run: cd frontend && yarn install
 
       - name: Build frontend
-        run: cd frontend && npx vite build
+        run: cd frontend && yarn vite build
 
       - name: Install backend dependencies
-        run: |
-          cd backend && npm install
-          npm install --save-dev @types/node
+        run: cd backend && yarn install
 
       - name: Build backend
         run: cd backend && tsc
