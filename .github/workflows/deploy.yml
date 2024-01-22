@@ -41,9 +41,7 @@ jobs:
         run: touch frontend/dist/.nojekyll
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ssh-key: ${{ secrets.SSH_KEY }}
-          repository-name: git@github.com:vitaolv/simple-nodejs-project.git
-          branch: gh-pages
-          folder: frontend/dist
+          deploy_key: ${{ secrets.SSH_KEY }}
+          publish_dir: ./frontend/dist
