@@ -14,6 +14,15 @@ Este projeto é composto por uma aplicação frontend e uma aplicação backend,
 
 4. Após iniciar o cliente, copie o link fornecido no terminal e abra-o em seu navegador para explorar o site localmente.
 
+## Apresentação brevemente
+
+- Cadastrar o produto
+  ![Cadastro GIF](../basic-nodejs-project/videos/Cadastro.gif)
+
+- Deletar o produto
+
+- Atualizar o produto
+
 <div>
 <h2>
 Tecnologias utilizadas:
