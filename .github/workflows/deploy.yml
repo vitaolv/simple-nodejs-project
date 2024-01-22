@@ -19,11 +19,8 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Vite globally
-        run: npm install -g vite
-
-      - name: Install backend dependencies
-        run: cd backend && npm install
+      - name: Install Vite dependencies
+        run: cd frontend && npm install
 
       - name: Install frontend dependencies
         run: cd frontend && npm install react-router-dom vite
