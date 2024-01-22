@@ -51,9 +51,9 @@ Este projeto está em constante evolução. Aqui estão algumas das melhorias pl
 
 - **Hospedagem**: Embora o GitHub Pages seja uma excelente opção para hospedar sites estáticos, ele não suporta aplicações full-stack como este projeto aqui. O GitHub Pages não tem a capacidade de executar um servidor backend, que é necessário para a funcionalidade de CRUD, prisma, PostgreSQL, banco de dados e afins deste aplicativo.
 
-Por isso, estou explorando outras opções de hospedagem para este projeto e estou aberto a sugestões e experiências. Se você tiver uma plataforma de hospedagem que recomenda ou tem experiência em hospedar aplicações full-stack, por favor, sinta-se à vontade para compartilhar suas ideias e experiências.
+  Por isso, estou explorando outras opções de hospedagem para este projeto e estou aberto a sugestões e experiências. Se você tiver uma plataforma de hospedagem que recomenda ou tem experiência em hospedar aplicações full-stack, por favor, sinta-se à vontade para compartilhar suas ideias e experiências.
 
-Atualmente, estou explorando opções para hospedar este aplicativo para que ele possa ser acessado publicamente. Estou particularmente interessado em usar o Heroku e o MongoDB para isso.
+  Atualmente, estou explorando opções para hospedar este aplicativo para que ele possa ser acessado publicamente. Estou particularmente interessado em usar o Heroku e o MongoDB para isso.
 
 - **Autenticação**: Planejo adicionar uma funcionalidade que permita aos usuários fazer login com suas contas do GitHub e/ou Google. Isso permitirá que os usuários gerenciem seus próprios arquivos individualmente.
 
