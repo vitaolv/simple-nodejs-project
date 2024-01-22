@@ -3,17 +3,24 @@ import './components/DeleteButtonComponent/styles/deleteButton.sass'
 import './components/PrimaryButton/styles/primaryButton.sass'
 import './components/SecondaryButton/styles/secondaryButton.sass'
 
+import { useEffect } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+
+
 import { PostFormComponent } from './components/PostFormComponent/PostFormComponent.tsx'
 import { HeaderComponent } from './components/parcialComponents/HeaderComponent/Header.tsx'
 import { FooterComponent } from './components/parcialComponents/FooterComponent/Footer.tsx'
 import { DescriptionProductPage } from './pages/DescriptionPage/DescriptionProductPage.tsx'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { ModalConfirmToDeleteComponent } from './components/ModalComponent/ModalConfirmToDeleteComponent.tsx'
+
+
 import { Home } from './pages/HomePage/Home.tsx'
-import { useEffect } from 'react'
 import { UpdateProductPage } from './pages/UpdatePage/UpdateProductPage.tsx'
+import NotFoundPage from './pages/NotFoundPage/NotFoundPages.tsx'
+
+
 import { useSelector } from 'react-redux'
 import { RootState } from './store/index.tsx'
-import { ModalConfirmToDeleteComponent } from './components/ModalComponent/ModalConfirmToDeleteComponent.tsx'
 
 
 
@@ -49,6 +56,7 @@ function App() {
         <Route path='/cadastro-de-produto' element={<PostFormComponent />} />
         <Route path='/descrição-de-produto/:id' element={<DescriptionProductPage />} />
         <Route path='/editar-o-produto/:name' element={<UpdateProductPage />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <FooterComponent />
     </div>
