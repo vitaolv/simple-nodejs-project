@@ -17,11 +17,22 @@ Este projeto é composto por uma aplicação frontend e uma aplicação backend,
 ## Apresentação brevemente
 
 - Cadastrar o produto
-  ![Cadastro GIF](../basic-nodejs-project/videos/Cadastro.gif)
+
+  ![Cadastro GIF](./videos/Cadastro.gif)
+
+Ao cadastrar um produto, é necessário acessar a página de cadastro, bastando clicar em "Cadastrar o produto" na barra de navegação.
 
 - Deletar o produto
 
+![Deletar GIF](./videos/Deletar.gif)
+
+Para remover um produto da base de dados, existem duas maneiras de fazer isso: clicar em "Deletar" na página inicial ou clicar em "Ver descrição" para acessar a página de detalhes do produto, onde também há um botão para deletar.
+
 - Atualizar o produto
+
+![Atualizar GIF](./videos/Editar.gif)
+
+Para modificar as informações de um produto, há duas maneiras de fazer isso: clicar em "Editar" na página inicial, que o direcionará à página de edição. Outra opção é clicar em "Ver descrição", onde você encontrará o botão para editar.
 
 <div>
 <h2>
