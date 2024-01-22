@@ -25,6 +25,9 @@ jobs:
       - name: Install frontend dependencies
         run: cd frontend && npm install react-router-dom vite
 
+      - name: Set Vite permissions
+        run: chmod +x $(npm bin)/vite
+
       - name: Install backend dependencies
         run: |
           cd backend && npm install
