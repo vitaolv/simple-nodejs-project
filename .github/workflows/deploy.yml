@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
   deploy:
-      name: Deploy
-      needs: build
-      runs-on: ubuntu-latest
-      if: github.ref == 'refs/heads/main'
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout repo
