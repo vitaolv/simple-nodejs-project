@@ -22,10 +22,11 @@ jobs:
       - name: Install Vite globally
         run: npm install -g vite
 
-      - name: Install dependencies
-        run: |
-          cd backend && npm install
-          cd ../frontend && npm install react-router-dom vite
+      - name: Install backend dependencies
+        run: cd backend && npm install
+
+      - name: Install frontend dependencies
+        run: cd frontend && npm install react-router-dom vite
 
       - name: Build backend and frontend
         run: |
