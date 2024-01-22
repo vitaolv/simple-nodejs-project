@@ -30,51 +30,48 @@ export function PostFormComponent() {
         }
     }
     return (
-        <div id="formBody">
-            <h3 className="titleSectoinProductsList">Cadastro de produtos</h3>
-            <form className="formSection" onSubmit={handleFormSubmit}>
-                <div className="formDisplay">
-                    <label>
-                        Nome do produto:
-
-                        <input
-                            type='text'
-                            value={productName}
-                            onChange={(e) => setProductName(e.target.value)} />
-
-                    </label>
-                    <label>
-                        Código do produto:
-
-                        <input
-                            type='number'
-                            value={productCode}
-                            onChange={(e) => setProductCode(e.target.value)} />
-
-                    </label>
-                    <label>
-                        Preço:
-
-                        <input
-                            value={productPrice}
-                            onChange={(e) => setProductPrice(e.target.value)} />
-                    </label>
-                </div>
-
+        <form className="formSection" onSubmit={handleFormSubmit}>
+            <div className="formDisplay">
                 <label>
-                    Descrição:
+                    Nome do produto:
 
-                    <textarea
-                        id="textareaDescriptionRegisterProduct"
-                        value={productDescription}
-                        onChange={(e) => setProductDescription(e.target.value)} />
+                    <input
+                        type='text'
+                        value={productName}
+                        onChange={(e) => setProductName(e.target.value)} />
+
                 </label>
+                <label>
+                    Código do produto:
 
-                <button className="buttonPrimary" type="submit">
-                    <img src="../../public/save.svg" alt="Save" />
-                    Salvar
-                </button>
-            </form>
-        </div>
+                    <input
+                        type='number'
+                        value={productCode}
+                        onChange={(e) => setProductCode(e.target.value)} />
+
+                </label>
+                <label>
+                    Preço:
+
+                    <input
+                        value={productPrice}
+                        onChange={(e) => setProductPrice(e.target.value)} />
+                </label>
+            </div>
+
+            <label>
+                Descrição:
+
+                <textarea
+                    id="textareaDescriptionRegisterProduct"
+                    value={productDescription}
+                    onChange={(e) => setProductDescription(e.target.value)} />
+            </label>
+
+            <button className="buttonPrimary" type="submit">
+                <img src="../../public/save.svg" alt="Save" />
+                Salvar
+            </button>
+        </form>
     )
 }

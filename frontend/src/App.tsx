@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 
 
-import { PostFormComponent } from './components/PostFormComponent/PostFormComponent.tsx'
+import { ProductFormPage } from './pages/ProductFormPage.tsx/ProductFormPage.tsx'
 import { HeaderComponent } from './components/parcialComponents/HeaderComponent/Header.tsx'
 import { FooterComponent } from './components/parcialComponents/FooterComponent/Footer.tsx'
 import { DescriptionProductPage } from './pages/DescriptionPage/DescriptionProductPage.tsx'
@@ -53,7 +53,7 @@ function App() {
       <Routes>
         <Route path='/' element={<RootRoute />} />
         <Route path='/home' index element={<Home />} />
-        <Route path='/cadastro-de-produto' element={<PostFormComponent />} />
+        <Route path='/cadastro-de-produto' element={<ProductFormPage />} />
         <Route path='/descrição-de-produto/:id' element={<DescriptionProductPage />} />
         <Route path='/editar-o-produto/:name' element={<UpdateProductPage />} />
         <Route path='*' element={<NotFoundPage />} />
