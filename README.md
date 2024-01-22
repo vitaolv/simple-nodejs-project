@@ -45,13 +45,19 @@ Um detalhe curioso: este foi o meu primeiro desafio de CRUD e também o primeiro
 
 Vale ressaltar também que não utilizei Bootstrap, Material UI, Ant Design e afins. Todos os componentes foram desenvolvidos em TS-react Sass. Apesar da desvantagem em termos de tempo de desenvolvimento, essa abordagem proporcionou maior liberdade no design, menos dependências e personalização dos componentes, alinhando-se melhor às necessidades específicas do projeto.
 
-E ainda não paramos por aqui, pois o aprendizado, as novas experiências e a evolução são contínuos.
+## Próximas Etapas
 
-Próximas etapas do projeto:
+Este projeto está em constante evolução. Aqui estão algumas das melhorias planejadas para o futuro:
 
-- Desenvolver uma nova página de login.
-- Permitir que os usuários façam login com o GitHub e/ou o Google para gerenciar seus arquivos individualmente.
-- Desenvolver testes para o projeto. 🚀
+- **Hospedagem**: Atualmente, estou explorando opções para hospedar este aplicativo para que ele possa ser acessado publicamente. Estou particularmente interessado em usar o Heroku e o MongoDB para isso.
+
+- **Autenticação**: Planejo adicionar uma funcionalidade que permita aos usuários fazer login com suas contas do GitHub e/ou Google. Isso permitirá que os usuários gerenciem seus próprios arquivos individualmente.
+
+- **Testes**: Para garantir a qualidade do código e a funcionalidade do aplicativo, planejo desenvolver testes unitários e de integração.
+
+Fique atento para atualizações futuras!
+
+🚀🚀🚀
 
 </p>
 
