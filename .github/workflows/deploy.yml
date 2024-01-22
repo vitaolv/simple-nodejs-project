@@ -25,6 +25,11 @@ jobs:
       - name: Install frontend dependencies
         run: cd frontend && npm install react-router-dom vite
 
+      - name: Install backend dependencies
+        run: |
+          cd backend && npm install
+          npm install --save-dev @types/node
+
       - name: Build backend and frontend
         run: |
           cd backend && tsc
