@@ -32,6 +32,9 @@ jobs:
           cd backend && npx ts-node index.ts
           cd ../frontend && npm run dev
 
+      - name: Create .nojekyll file
+        run: touch frontend/dist/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
