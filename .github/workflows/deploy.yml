@@ -41,7 +41,8 @@ jobs:
         run: touch frontend/dist/.nojekyll
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          github_token: ${{ secrets.DEPLOY_TOKEN }}
-          publish_dir: frontend/dist
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          branch: gh-pages
+          folder: frontend/dist
