@@ -19,24 +19,19 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Vite dependencies
-        run: cd frontend && npm install
-
       - name: Install frontend dependencies
         run: cd frontend && npm install react-router-dom vite
-
-      - name: Set Vite permissions
-        run: chmod +x $(npm bin)/vite
 
       - name: Install backend dependencies
         run: |
           cd backend && npm install
           npm install --save-dev @types/node
 
-      - name: Build backend and frontend
-        run: |
-          cd backend && tsc
-          cd ../frontend && npm run build
+      - name: Build frontend
+        run: cd frontend && npx vite build
+
+      - name: Build backend
+        run: cd backend && tsc
 
       - name: Create .nojekyll file
         run: touch frontend/dist/.nojekyll
