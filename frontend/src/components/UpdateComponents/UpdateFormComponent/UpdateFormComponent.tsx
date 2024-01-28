@@ -1,4 +1,4 @@
-import { Product } from '../../../pages/UpdatePage/UpdateProductPage';
+import { Product } from '../../../utils/InterfaceProduct';
 import { useState, useEffect } from 'react';
 interface UpdateFormProps {
     initialProduct: Product;

@@ -3,14 +3,10 @@ import "./styles/loading.sass"
 
 interface TypesLoadingComponent {
     readonly text: string;
-
     isLoading: boolean;
-
 }
 
 export function LoadingComponent({ text, isLoading }: TypesLoadingComponent) {
-
-
 
     return (
         <div className="loading">

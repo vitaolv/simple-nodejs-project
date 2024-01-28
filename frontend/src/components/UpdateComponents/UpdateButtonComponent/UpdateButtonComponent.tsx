@@ -1,7 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
-import { Product } from "../../../pages/UpdatePage/UpdateProductPage";
-
+import { Product } from "../../../utils/InterfaceProduct";
 interface TypesUpdateButtonComponent {
     readonly product: Product;
     readonly text: string;
