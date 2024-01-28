@@ -4,6 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App.tsx'
 import { Provider } from 'react-redux';
 import { store } from './store/index.tsx';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+
+if (process.env.NODE_ENV === 'production') disableReactDevTools()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
