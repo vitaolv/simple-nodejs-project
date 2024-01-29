@@ -7,7 +7,7 @@ interface Product {
     productCode: string,
     productName: string,
     productDescription: string,
-    productPrice: number,
+    productPrice: string,
 }
 
 interface TypesButtonComponent {

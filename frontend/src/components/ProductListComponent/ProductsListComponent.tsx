@@ -13,13 +13,7 @@ import { NoDataImg } from "../NoDataImgComponent.tsx/NoDataImgComponent";
 import { SearchComponent } from "../SearchComponent/SearchComponent";
 import { RootState } from "../../store";
 
-interface Product {
-    id: string,
-    productCode: string,
-    productName: string,
-    productDescription: string,
-    productPrice: number,
-}
+import { Product } from "../../utils/InterfaceProduct";
 
 export function ProductsListComponent() {
     const [products, setProducts] = useState<Product[]>([]);

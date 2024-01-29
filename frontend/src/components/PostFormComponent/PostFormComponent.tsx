@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../../components/PostFormComponent/styles/form.sass'
 
-import { formatPrice } from "../../utils/formValidation/validationUtils";
+import { formatPrice } from "../../utils/formValidation/validationPriceInput";
 
 export function PostFormComponent() {
     const [productCode, setProductCode] = useState<string>('');
@@ -12,8 +12,6 @@ export function PostFormComponent() {
     const [productDescription, setProductDescription] = useState<string>('');
     const [productPrice, setProductPrice] = useState<string>('');
     const navigate = useNavigate();
-    const productPriceNumber = parseFloat(productPrice);
-
 
     async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -23,7 +21,7 @@ export function PostFormComponent() {
                 productCode,
                 productName,
                 productDescription,
-                productPrice: productPriceNumber
+                productPrice
             });
             if (response.status === 200) {
                 navigate("/home")
@@ -56,7 +54,6 @@ export function PostFormComponent() {
                 <label>
                     Preço:
                     <input
-                        type='text'
                         value={productPrice}
                         onChange={(e) => {
                             const formattedValue = formatPrice(e.target.value);

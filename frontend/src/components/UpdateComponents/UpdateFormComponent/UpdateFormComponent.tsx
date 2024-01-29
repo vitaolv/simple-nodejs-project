@@ -1,5 +1,9 @@
+import { formatPrice } from "../../../utils/formValidation/validationPriceInput";
 import { Product } from '../../../utils/InterfaceProduct';
+
 import { useState, useEffect } from 'react';
+
+
 interface UpdateFormProps {
     initialProduct: Product;
     onSubmit: (updatedProduct: Product) => void;
@@ -57,9 +61,12 @@ export function UpdateFormComponent({
                     Preço:
                     <input
                         value={product?.productPrice}
-                        placeholder={product?.productPrice?.toString() || ''}
+                        placeholder={product.productPrice}
                         disabled={isLoading}
-                        onChange={(e) => handleInternalSubmit('productPrice', parseFloat(e.target.value))}
+                        onChange={(e) => {
+                            const formattedValue = formatPrice(e.target.value);
+                            handleInternalSubmit('productPrice', formattedValue);
+                        }}
                     />
                 </label>
                 <label>
