@@ -1,7 +1,10 @@
-import { useState } from "react";
 import axios from "axios";
+
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../../components/PostFormComponent/styles/form.sass'
+
+import { formatPrice } from "../../utils/formValidation/validationUtils";
 
 export function PostFormComponent() {
     const [productCode, setProductCode] = useState<string>('');
@@ -52,10 +55,14 @@ export function PostFormComponent() {
                 </label>
                 <label>
                     Preço:
-
                     <input
+                        type='text'
                         value={productPrice}
-                        onChange={(e) => setProductPrice(e.target.value)} />
+                        onChange={(e) => {
+                            const formattedValue = formatPrice(e.target.value);
+                            setProductPrice(formattedValue);
+                        }}
+                    />
                 </label>
             </div>
 

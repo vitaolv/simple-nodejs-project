@@ -15,5 +15,5 @@ model Product {
   productCode        String @default(uuid())
   productName        String
   productDescription String
-  productPrice       Float
+  productPrice       String
 }
