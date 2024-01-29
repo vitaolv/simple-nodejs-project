@@ -1,8 +1,8 @@
 import { formatPrice } from "../../../utils/formValidation/validationPriceInput";
+import { limitLengthCode } from "../../../utils/formValidation/validationCodeInput";
 import { Product } from '../../../utils/InterfaceProduct';
 
 import { useState, useEffect } from 'react';
-
 
 interface UpdateFormProps {
     initialProduct: Product;
@@ -43,6 +43,7 @@ export function UpdateFormComponent({
                         type="text"
                         value={product?.productName}
                         placeholder={product.productName}
+                        maxLength={90}
                         disabled={isLoading}
                         onChange={(e) => handleInternalSubmit('productName', e.target.value)}
                     />
@@ -54,7 +55,10 @@ export function UpdateFormComponent({
                         value={product?.productCode}
                         placeholder={product.productCode}
                         disabled={isLoading}
-                        onChange={(e) => handleInternalSubmit('productCode', e.target.value)}
+                        onChange={(e) => {
+                            const limitedCode = limitLengthCode(e.target.value);
+                            handleInternalSubmit('productCode', limitedCode);
+                        }}
                     />
                 </label>
                 <label>

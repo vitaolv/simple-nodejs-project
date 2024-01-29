@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import '../../components/PostFormComponent/styles/form.sass'
 
 import { formatPrice } from "../../utils/formValidation/validationPriceInput";
+import { limitLengthCode } from "../../utils/formValidation/validationCodeInput";
 
 export function PostFormComponent() {
     const [productCode, setProductCode] = useState<string>('');
@@ -39,6 +40,7 @@ export function PostFormComponent() {
                     <input
                         type='text'
                         value={productName}
+                        maxLength={90}
                         onChange={(e) => setProductName(e.target.value)} />
 
                 </label>
@@ -48,7 +50,10 @@ export function PostFormComponent() {
                     <input
                         type='number'
                         value={productCode}
-                        onChange={(e) => setProductCode(e.target.value)} />
+                        onChange={(e) => {
+                            const limitedCode = limitLengthCode(e.target.value);
+                            setProductCode(limitedCode);
+                        }} />
 
                 </label>
                 <label>
