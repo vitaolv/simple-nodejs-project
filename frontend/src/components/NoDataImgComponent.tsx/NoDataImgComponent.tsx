@@ -10,7 +10,7 @@ export function NoDataImg() {
         <div className="NoData">
             <LoadingComponent text="Atualizando os dados..." isLoading={isLoading} />
 
-            <img src="../../public/noData.svg" alt="Sem-dados" />
+            <img src="/noData.svg" alt="Sem-dados" />
             <h4>Opa! Não temos produtos cadastrados.</h4>
             <p>
                 Sem problemas,

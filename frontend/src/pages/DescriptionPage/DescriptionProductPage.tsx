@@ -14,7 +14,7 @@ export function DescriptionProductPage() {
         <div className="ul-detailProduct">
             <h3>Detalhe do produto cadastrado</h3>
             <span>
-                <ToBackButtonComponent text="Voltar para lista" classStyle="secondaryButton" srcImage="../../public/toBack.svg" />
+                <ToBackButtonComponent text="Voltar para lista" classStyle="secondaryButton" srcImage="/toBack.svg" />
             </span>
             <ul>
                 {product && (
@@ -38,10 +38,10 @@ export function DescriptionProductPage() {
                         </span>
                         <div className="displayButtonsInDescriptionProductPage">
                             <span>
-                                <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
+                                <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="/edit.svg" product={product} />
                             </span>
                             <span>
-                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" product={product} />
+                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="/trash.svg" product={product} />
                             </span>
                         </div>
                     </li>

@@ -73,7 +73,7 @@ export function UpdateFormComponent({
                     />
                 </label>
                 <button type='submit' className='buttonPrimary'>
-                    <img src="../../public/save.svg" alt="Save" />
+                    <img src="/save.svg" alt="Save" />
                     Salvar
                 </button>
             </form>

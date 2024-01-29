@@ -83,14 +83,14 @@ export function ProductsListComponent() {
                             <p className="li-item">{product.productPrice}</p>
                         </span>
                         <span>
-                            <SeeDetailButtonComponent text="Ver descrição" classStyle="secondaryButton" srcImage="../../public/see.svg" product={product} />
+                            <SeeDetailButtonComponent text="Ver descrição" classStyle="secondaryButton" srcImage="/see.svg" product={product} />
                         </span>
                         <div className="displayButtons">
                             <span>
-                                <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="../../public/edit.svg" product={product} />
+                                <UpdateButtonComponent text="Editar" classStyle="secondaryButton" srcImage="/edit.svg" product={product} />
                             </span>
                             <span>
-                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage="../../public/trash.svg" product={product} />
+                                <DeleteButtonComponent text="Deletar" classStyle="deleteButton" srcImage=" /trash.svg" product={product} />
                             </span>
                         </div>
                     </li>

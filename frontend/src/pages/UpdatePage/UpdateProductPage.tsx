@@ -41,7 +41,7 @@ export function UpdateProductPage() {
                 <h3>
                     Editar o produto cadastrado
                 </h3>
-                <ToBackButtonComponent text="Voltar para lista" classStyle="secondaryButton" srcImage="../../../public/toBack.svg" />
+                <ToBackButtonComponent text="Voltar para lista" classStyle="secondaryButton" srcImage="/toBack.svg" />
             </div>
             <UpdateFormComponent
                 initialProduct={location.state?.product}

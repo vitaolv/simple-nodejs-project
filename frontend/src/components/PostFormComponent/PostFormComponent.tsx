@@ -69,7 +69,7 @@ export function PostFormComponent() {
             </label>
 
             <button className="buttonPrimary" type="submit">
-                <img src="../../public/save.svg" alt="Save" />
+                <img src="/save.svg" alt="Save" />
                 Salvar
             </button>
         </form>
