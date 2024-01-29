@@ -15,6 +15,7 @@ import { ModalConfirmToDeleteComponent } from './components/ModalComponent/Modal
 
 
 import { Home } from './pages/HomePage/Home.tsx'
+import { LoginPage } from './pages/LoginPage/LoginPage.tsx'
 import { UpdateProductPage } from './pages/UpdatePage/UpdateProductPage.tsx'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPages.tsx'
 
@@ -53,6 +54,7 @@ function App() {
       <Routes>
         <Route path='/' element={<RootRoute />} />
         <Route path='/home' index element={<Home />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='/cadastro-de-produto' element={<ProductFormPage />} />
         <Route path='/descrição-de-produto/:id' element={<DescriptionProductPage />} />
         <Route path='/editar-o-produto/:name' element={<UpdateProductPage />} />

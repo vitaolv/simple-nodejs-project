@@ -1,0 +1,63 @@
+@import "../../../App"
+
+.form-login
+    background: transparent
+    border: 2px solid $primary
+    border-radius: 16px
+    padding: 1.6rem
+    margin: 0 auto
+    width: 100%
+    max-width: 450px
+
+    @media (max-width: 548px)
+        padding: 23px
+
+    button
+        align-self: center
+        margin: 0 auto
+        padding: 1rem 10rem 1rem 10rem
+        width: 90%
+        display: flex
+        gap: 10px
+
+        @media (max-width: 548px)
+            padding: 18px
+            align-content: center
+            align-items: center
+            align-self: center
+            text-align: center
+            margin: 0 auto
+            width: 120px
+
+    img
+        width: 80px
+        margin: 0 auto
+
+.enter-img
+    flex: 0 1 auto
+    width: 18px
+    max-width: 18px
+    height: auto
+
+.display-form
+    display: flex
+    flex-direction: column
+
+    label
+        font-size: 20px
+        color: $primary
+        margin-top: 1rem
+        font-weight: bold
+        display: flex
+        flex-direction: column
+
+    input
+        padding: 0.3rem
+        border: 1px solid $primary
+        border-radius: 8px
+        font-size: 18px
+        background: $inputs
+        padding-left: 0.6rem
+
+    label:last-child
+        margin-bottom: 2rem
