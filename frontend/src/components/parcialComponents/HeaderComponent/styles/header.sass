@@ -25,7 +25,27 @@
     height: 42px
     border-radius: 16px
 
-#navList
+.nav-content
+    background: $primary
+    display: flex
+    flex-direction: row
+    align-content: space-between
+    align-items: space-between
+    justify-content: space-between
+    gap: 16px
+    width: 100%
+
+.button-to-login
+    display: flex
+    flex-direction: column
+
+    img
+        width: 50px
+        margin: 2px
+        border-radius: 50%
+        border: 1px groove $secondary
+
+.navList
     display: flex
     gap: 16px
     background: $primary
@@ -67,7 +87,7 @@
     .header img
         width: 58px
 
-    #navList
+    .navList
         gap: 6px
         align-items: center
 
