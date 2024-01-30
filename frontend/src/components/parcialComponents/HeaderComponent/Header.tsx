@@ -1,25 +1,24 @@
 import '../HeaderComponent/styles/header.sass'
 
+import { MenuNavigation } from '../../MenuNavigation/MenuNavigatoin';
+import { ButtonBurger } from '../../ButtonBurger/ButtonBurger';
+
+import { useState, useEffect } from 'react';
+
 export function HeaderComponent() {
+    const [windowWidth, setWindowWidth] = useState<number>(0);
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setWindowWidth(window.innerWidth);
+        });
+        setWindowWidth(window.innerWidth);
+    }, []);
+
     return (
         <div className='header'>
             <img src="/logo.svg" alt="logo" />
-            <nav className='nav-content'>
-                <ul className="navList">
-                    <li><a href="/home">Início</a></li>
-                    <li><div id='traçado' /></li>
-                    <li><a href="/cadastro-de-produto">Cadastrar o produto</a></li>
-                </ul>
-                <ul className="navList">
-                    <li>
-                        <a className="button-to-login" href="/login">
-                            <img src="/user.svg" alt="login" />
-                            Login
-                        </a>
-                    </li>
-                </ul>
-
-            </nav>
+            {windowWidth <= 548 ? <ButtonBurger /> : <MenuNavigation />}
         </div>
     )
 }

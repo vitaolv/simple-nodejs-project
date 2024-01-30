@@ -12,3 +12,6 @@ export const CONFIRM_ACTION_RESULT = "CONFIRM_ACTION_RESULT";
 
 //Componente loading
 export const IS_LOADING = "IS_LOADING";
+
+//Componente Menu burger
+export const IS_BURGER_OPEN = "IS_BURGER_OPEN";

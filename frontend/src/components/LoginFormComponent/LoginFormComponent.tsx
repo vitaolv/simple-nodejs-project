@@ -4,7 +4,7 @@ export function LoginFormComponent() {
     return (
         <form className="form-login">
             <div className="display-form">
-                <img src="/user.svg" alt="user-login" />
+                <img className='user-img-login' src="/user.svg" alt="user-login" />
                 <label>
                     Nome de usuário
                     <input

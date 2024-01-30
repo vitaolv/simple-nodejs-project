@@ -1,4 +1,5 @@
 @import "../../../../App"
+@import "./Hamburger.sass"
 
 .header
     background: $primary
@@ -34,6 +35,13 @@
     justify-content: space-between
     gap: 16px
     width: 100%
+
+    @media (max-width: 548px)
+    .nav-content
+        display: none
+
+    .nav-content.open
+        display: flex
 
 .button-to-login
     display: flex
