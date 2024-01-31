@@ -14,7 +14,7 @@ export function NoDataImg() {
             <h4>Opa! Não temos produtos cadastrados.</h4>
             <p>
                 Sem problemas,
-                você pode <a href="http://localhost:5173/cadastro-de-produto">clicar aqui</a> para
+                você pode <a href="/cadastro-de-produto">clicar aqui</a> para
                 adicionar um novo produto.
             </p>
         </div>
