@@ -1,0 +1,33 @@
+@import '../../../App'
+
+.button-burger
+    border-radius: 50%
+    margin: 0 auto
+    min-width: 60px
+    min-height: 60px
+    width: 60px
+    height: 60px
+    font-size: 27px
+
+    background: $primary
+    border: 2px solid $secondary
+    color: $secondary
+    font-weight: bold
+
+    position: absolute
+    margin-right: 18px
+    right: 0
+
+.menu
+    position: absolute
+    top: 100%
+    width: 100%
+    right: 0
+    transition: transform 0.3s ease-in-out
+    border-top: 2px solid $secondary
+
+    &.closed
+        transform: translateX(100%)
+
+    &.open
+        transform: translateX(0)

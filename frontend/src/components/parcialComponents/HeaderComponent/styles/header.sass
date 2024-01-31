@@ -1,5 +1,4 @@
 @import "../../../../App"
-@import "./Hamburger.sass"
 
 .header
     background: $primary
@@ -11,8 +10,10 @@
     text-align: center
     z-index: 9999
 
+    position: relative
     display: flex
     flex-direction: row
+    justify-content: space-between
     gap: 16px
 
 .header img
@@ -20,7 +21,7 @@
     margin: 2px
     border-radius: 50%
 
-#traçado
+.traçado
     background: none
     border: 1px groove $secondary
     height: 42px
@@ -37,8 +38,28 @@
     width: 100%
 
     @media (max-width: 548px)
-    .nav-content
-        display: none
+        flex-direction: column
+        margin: 0 auto
+        padding: 18px
+        gap: 10px
+
+        .navList
+            flex-direction: column
+            gap: 6px
+            width: 100%
+
+            & li
+                gap: 16px
+                padding-top: 6px
+                width: 100%
+
+        .traçado
+            padding: 0
+            object-fit: cover
+            width: 100%
+            height: 1px
+            background: none
+            border-bottom: 1px groove $secondary
 
     .nav-content.open
         display: flex
@@ -49,7 +70,7 @@
 
     img
         width: 50px
-        margin: 2px
+        margin: 0 auto
         border-radius: 50%
         border: 1px groove $secondary
 

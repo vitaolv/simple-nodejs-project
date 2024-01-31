@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import './styles/buttonBurger.sass'
+
 import { RootState } from "../../store";
 import { burgerIsOpenAction } from "../../store/actions/burgerIsOpenAction";
 import { MenuNavigation } from "../MenuNavigation/MenuNavigatoin";
@@ -34,12 +36,12 @@ export function ButtonBurger() {
 
     return (
         <>
-            <button onClick={handleBurgerClick}>
-                {isOpen ? 'X' : '☰'}
-            </button>
-            <div className="button-burger">
+            <div className={`menu ${isOpen ? 'open' : 'closed'}`}>
                 {isOpen && <MenuNavigation />}
             </div>
+            <button className="button-burger" onClick={handleBurgerClick}>
+                {isOpen ? 'X' : '☰'}
+            </button>
         </>
     )
 }
