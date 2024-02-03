@@ -1,13 +1,16 @@
 import express from 'express';
 import path from 'path';
 
-const app = express();
+const router = express.Router();
 
-app.use(express.static(path.join(__dirname, 'build')));
+router.use(express.static(path.resolve(__dirname, '..', '..', '..', 'frontend', 'dist')));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+router.get('/test', (req, res) => {
+    res.send('Test route');
 });
 
-const port = process.env.PORT || 8000;
-app.listen(port);
+router.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', '..', '..', 'frontend', 'dist', 'index.html'));
+});
+
+export default router;

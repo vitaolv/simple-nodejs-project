@@ -1,4 +1,6 @@
 import express from 'express';
+import router from './router/router';
+import root from './router/root'
 
 const cors = require('cors');
 import { PrismaClient } from '@prisma/client';
@@ -6,10 +8,11 @@ import { PrismaClient } from '@prisma/client';
 const app = express();
 const prisma = new PrismaClient();
 
-const PORT = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json())
+
 
 app.get('/api/products', async (req, res) =>  {
     try {
@@ -125,6 +128,10 @@ app.patch('/api/products/:id', async (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+app.get('/test-direct', (req, res) => {
+    res.send('Direct test route');
+  });
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });

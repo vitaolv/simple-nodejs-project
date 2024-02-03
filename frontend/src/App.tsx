@@ -3,9 +3,8 @@ import './components/DeleteButtonComponent/styles/deleteButton.sass'
 import './components/PrimaryButton/styles/primaryButton.sass'
 import './components/SecondaryButton/styles/secondaryButton.sass'
 
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom'
-
 
 import { ProductFormPage } from './pages/ProductFormPage.tsx/ProductFormPage.tsx'
 import { HeaderComponent } from './components/parcialComponents/HeaderComponent/Header.tsx'
@@ -13,17 +12,13 @@ import { FooterComponent } from './components/parcialComponents/FooterComponent/
 import { DescriptionProductPage } from './pages/DescriptionPage/DescriptionProductPage.tsx'
 import { ModalConfirmToDeleteComponent } from './components/ModalComponent/ModalConfirmToDeleteComponent.tsx'
 
-
 import { Home } from './pages/HomePage/Home.tsx'
 import { LoginPage } from './pages/LoginPage/LoginPage.tsx'
 import { UpdateProductPage } from './pages/UpdatePage/UpdateProductPage.tsx'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPages.tsx'
 
-
 import { useSelector } from 'react-redux'
 import { RootState } from './store/index.tsx'
-
-
 
 function RootRoute() {
   const navigate = useNavigate();
@@ -39,7 +34,6 @@ function App() {
   const showModal = useSelector((state: RootState) => state.modalConfirm.modalIsOpen);
   const productId = useSelector((state: RootState) => state.productToDelete?.id);
   const productName = useSelector((state: RootState) => state.productToDelete?.productName);
-
 
   return (
     <div className='AppBody'>

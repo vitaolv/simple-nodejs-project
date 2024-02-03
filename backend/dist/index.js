@@ -17,7 +17,7 @@ const cors = require('cors');
 const client_1 = require("@prisma/client");
 const app = (0, express_1.default)();
 const prisma = new client_1.PrismaClient();
-const PORT = 8000;
+const port = process.env.PORT || 8000;
 app.use(cors());
 app.use(express_1.default.json());
 app.get('/api/products', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -117,6 +117,9 @@ app.patch('/api/products/:id', (req, res) => __awaiter(void 0, void 0, void 0, f
         yield prisma.$disconnect();
     }
 }));
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.get('/test-direct', (req, res) => {
+    res.send('Direct test route');
+});
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
