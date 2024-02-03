@@ -1,6 +1,4 @@
 import express from 'express';
-import router from './router/router';
-import root from './router/root'
 
 const cors = require('cors');
 import { PrismaClient } from '@prisma/client';
