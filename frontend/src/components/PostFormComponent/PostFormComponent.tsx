@@ -18,7 +18,7 @@ export function PostFormComponent() {
         event.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:8000/api/products", {
+            const response = await axios.post("https://cadastro-dos-produtos.onrender.com/api/products", {
                 productCode,
                 productName,
                 productDescription,

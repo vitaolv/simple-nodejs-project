@@ -22,7 +22,7 @@ export function SeeDetailButtonComponent({ text, classStyle, srcImage, product }
     const navigate = useNavigate();
     const handleSeeDetailButtonClick = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/products/${product.id}`,
+            const response = await axios.get(`https://cadastro-dos-produtos.onrender.com/api/products/${product.id}`,
                 {
                     method: 'GET'
                 }

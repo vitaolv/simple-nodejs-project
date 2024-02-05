@@ -19,7 +19,7 @@ export function ModalConfirmToDeleteComponent({ textAlert, textHeader, productId
 
     const handleConfirmClick = async () => {
         try {
-            const response = await axios.delete(`http://localhost:8000/api/products/${productId}`, {
+            const response = await axios.delete(`https://cadastro-dos-produtos.onrender.com/api/products/${productId}`, {
                 method: 'DELETE'
             });
 

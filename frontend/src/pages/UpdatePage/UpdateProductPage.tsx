@@ -19,7 +19,7 @@ export function UpdateProductPage() {
         setIsLoading(true);
 
         try {
-            const response = await axios.patch(`http://localhost:8000/api/products/${updatedProduct.id}`, {
+            const response = await axios.patch(`https://cadastro-dos-produtos.onrender.com/api/products/${updatedProduct.id}`, {
                 ...updatedProduct,
             });
 
