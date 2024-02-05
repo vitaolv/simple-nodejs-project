@@ -7,10 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id       String    @id @default(uuid())
+  username String    @unique
+  password String
+  products Product[] @relation("UserProducts")
+}
+
 model Product {
-  id                 String @id @default(uuid())
-  productCode        String @default(uuid())
+  id                 String  @id @default(uuid())
+  productCode        String  @default(uuid())
   productName        String
   productDescription String
   productPrice       String
+  userId             String? @map("user_id")
+  user               User?   @relation("UserProducts", fields: [userId], references: [id])
 }
