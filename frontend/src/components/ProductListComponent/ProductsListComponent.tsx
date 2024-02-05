@@ -27,7 +27,7 @@ export function ProductsListComponent() {
         setTimeout(() => {
             async function getProducts() {
                 try {
-                    const response = await axios.get('http://localhost:8000/api/products');
+                    const response = await axios.get('https://cadastro-dos-produtos.onrender.com/api/products');
 
                     if (response.status === 200) {
                         setProducts(response.data)

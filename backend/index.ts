@@ -129,10 +129,6 @@ app.patch('/api/products/:id', async (req, res) => {
     }
 })
 
-app.get('/test-direct', (req, res) => {
-    res.send('Direct test route');
-  });
-
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
-  });
+});
